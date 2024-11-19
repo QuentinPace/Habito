@@ -1,4 +1,4 @@
-Welcome to the HabitTracker wiki!
+Welcome to HabitTracker!
 
 [Getting Started](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/getting-started.md)
 
