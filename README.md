@@ -130,3 +130,13 @@ main, always keeping it up to date.
 [Render.com]: https://render.com/
 [Dashboard]: https://dashboard.render.com/
 # HabitTracker
+
+Welcome to the RobinhoodClone wiki!
+
+[Database Schema](https://github.com/Mandeepan/RobinhoodClone/wiki/Database-Schema)
+
+[API Endpoints](https://github.com/Mandeepan/RobinhoodClone/wiki/API-Endpoints)
+
+[Feature List](https://github.com/Mandeepan/RobinhoodClone/wiki/Feature-List)
+
+[User Stories](https://github.com/Mandeepan/RobinhoodClone/wiki/User-Stories)
