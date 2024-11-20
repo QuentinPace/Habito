@@ -71,11 +71,13 @@ Returns the programs and daily tasks for the current user.
           "tasks": [
             {
               "id": 3,
-              "name": "drink aqua"
+              "name": "drink aqua",
+              "is_completed": false
             },
             {
               "id": 4,
-              "name": "read 5 pages of a book"
+              "name": "read 5 pages of a book",
+              "is_completed": true
             }
           ]
         },
@@ -90,11 +92,13 @@ Returns the programs and daily tasks for the current user.
           "tasks": [
             {
               "id": 7,
-              "name": "run for 30 mins"
+              "name": "run for 30 mins",
+              "is_completed": false
             },
             {
               "id": 9,
-              "name": "don't smoke"
+              "name": "don't smoke",
+              "is_completed": true
             }
           ]
         }
