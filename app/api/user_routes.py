@@ -23,3 +23,12 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/bloop')
+@login_required
+def userBloop():
+    """
+    Query for a user by id and returns that user in a dictionary
+    """
+    return "made it buddy"
+
