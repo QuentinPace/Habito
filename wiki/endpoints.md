@@ -62,7 +62,7 @@ Returns the programs and daily tasks for the current user.
       "user_programs": [
         {
           "id": 1,
-          "user_program_id": 3,
+          "program_id": 3,
           "creator_id": 2,
           "name": "75 hard",
           "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
@@ -83,7 +83,7 @@ Returns the programs and daily tasks for the current user.
         },
         {
           "id": 2,
-          "user_program_id": 2,
+          "program_id": 2,
           "creator_id": null,
           "name": "30 soft",
           "description": "diet, exercise and read",
@@ -125,6 +125,7 @@ Creates a new program with the specified details.
       "name": "75 hard",
       "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
       "total_days": 75,
+      "enroll": true // if the user that created it wants to enroll
       "tasks": [
         {
           "name": "drink aqua"
@@ -310,6 +311,7 @@ Returns the details of a specific program.
     {
       "id": 1,
       "creator_id": null,
+      "is_enrolled": false, // if user is enrolled in program
       "name": "75 hard",
       "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
       "total_days": 75,
