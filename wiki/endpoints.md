@@ -125,7 +125,7 @@ Creates a new program with the specified details.
       "name": "75 hard",
       "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
       "total_days": 75,
-      "enroll": true // if the user that created it wants to enroll
+      "enroll": true, // if the user that created it wants to enroll
       "tasks": [
         {
           "name": "drink aqua"
@@ -145,7 +145,23 @@ Creates a new program with the specified details.
 
     ```json
     {
-      "message": "successfully created"
+      "id": 1,
+      "creator_id": 1,
+      "is_enrolled": true, // if user is enrolled in program
+      "name": "75 hard",
+      "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
+      "total_days": 75,
+      "days_left": 33,
+      "tasks": [
+        {
+          "id": 3,
+          "name": "drink aqua"
+        },
+        {
+          "id": 4,
+          "name": "read 5 pages of a book"
+        }
+      ]
     }
     ```
 
