@@ -1,7 +1,7 @@
 from .db import SCHEMA, add_prefix_for_prod, db, environment
 from sqlalchemy.sql import func
 
-class Taks(db.Model):
+class Task(db.Model):
     __tablename__ = "tasks"
 
     if environment == "production":
