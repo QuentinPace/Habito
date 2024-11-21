@@ -2,7 +2,7 @@ from app.models import db, Program, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
-def seed_users():
+def seed_programs():
     db.session.add_all([
         Program(
         name="75 Hard",
@@ -74,7 +74,7 @@ def seed_users():
 # incrementing primary key, CASCADE deletes any dependent entities.  With
 # sqlite3 in development you need to instead use DELETE to remove all data and
 # it will reset the primary keys for you as well.
-def undo_users():
+def undo_programs():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.programs RESTART IDENTITY CASCADE;")
     else:

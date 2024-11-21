@@ -9,8 +9,8 @@ class UserTask(db.Model):
     
 
     id = db.Column(db.Integer, primary_key=True)
-    task_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('tasks.id'), ondelete="CASCADE"))
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'), ondelete="CASCADE"))
+    task_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('tasks.id'), ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'), ondelete="CASCADE"), nullable=False)
     is_completed = db.Column(db.Boolean, nullable=False, default=False)
     
 
