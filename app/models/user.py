@@ -19,6 +19,8 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.current_timestamp(), nullable=False)
 
     programs = db.relationship("Program", backref="programs", cascade="all, delete-orphan")
+    user_programs = db.relationship("UserProgram", backref="user_programs", cascade="all, delete-orphan")
+    user_tasks = db.relationship("UserTask", backref="user_tasks", cascade="all, delete-orphan")
 
     @property
     def password(self):

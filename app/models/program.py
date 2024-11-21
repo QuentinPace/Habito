@@ -16,8 +16,9 @@ class Program(db.Model):
 
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.current_timestamp(), nullable=False)
-    # user_stocks = db.relationship("UserStock", backref="stocks", cascade="all, delete-orphan")
-    # watchlist_stocks = db.relationship("WatchlistStock", backref="stocks", cascade="all, delete-orphan")
+    
+    tasks = db.relationship("Task", backref="tasks", cascade="all, delete-orphan")
+    user_programs = db.relationship("UserProgram", backref="user_programs", cascade="all, delete-orphan")
 
     def to_dict_basic(self):
         return {
