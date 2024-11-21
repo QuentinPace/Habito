@@ -8,13 +8,15 @@ def seed_user_programs():
     db.session.add_all([
         UserProgram(user_id=1, program_id=1),
         UserProgram(user_id=1, program_id=3),
-        UserProgram(user_id=1, program_id=6, creator_id=1),
+        UserProgram(user_id=1, program_id=6),
 
         UserProgram(user_id=2, program_id=1),
-        UserProgram(user_id=2, program_id=4, creator_id=3),
+        UserProgram(user_id=2, program_id=4),
         
         UserProgram(user_id=3, program_id=8),
     ])
+
+    db.session.commit()
     
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't

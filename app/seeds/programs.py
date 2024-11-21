@@ -25,7 +25,8 @@ def seed_programs():
         Program(
         name="30 Day Creative Challenge",
         description="The 30 Day Creative Challenge is designed to help individuals tap into their creative potential and develop a consistent creative practice. Over the course of 30 days, participants engage in different creative activities such as drawing, writing, photography, or any other form of artistic expression. The program encourages participants to step outside their comfort zones, try new things, and explore their creative limits. Each day, they focus on creating something new, fostering creativity, and building a creative habit that can continue beyond the challenge. It’s a great way to reconnect with one's artistic side and develop a personal outlet for self-expression.",
-        total_days=30
+        total_days=30,
+        creator_id=3
         ),
 
         Program(
@@ -37,7 +38,8 @@ def seed_programs():
         Program(
         name="60 Day Fitness Transformation",
         description="The 60 Day Fitness Transformation is an intense physical challenge designed to push your limits and transform your body. Over the course of two months, participants follow a rigorous workout routine, combining strength training, cardio, and flexibility exercises. The challenge also includes strict nutritional guidelines, focusing on clean, whole foods to fuel the body and maximize results. With daily check-ins on progress and consistency, this challenge encourages perseverance and dedication to achieving physical transformation.",
-        total_days=60
+        total_days=60,
+        creator_id=1
         ),
 
         Program(
