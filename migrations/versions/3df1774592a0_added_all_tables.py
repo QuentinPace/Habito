@@ -1,8 +1,8 @@
 """Added all tables
 
-Revision ID: 7d37e1e9cf59
+Revision ID: 3df1774592a0
 Revises: 
-Create Date: 2024-11-20 18:59:31.964571
+Create Date: 2024-11-20 19:55:17.698656
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '7d37e1e9cf59'
+revision = '3df1774592a0'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -46,7 +46,7 @@ def upgrade():
     )
     op.create_table('tasks',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('program_id', sa.Integer(), nullable=True),
+    sa.Column('program_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
