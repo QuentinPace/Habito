@@ -6,12 +6,13 @@ userprogram_routes = Blueprint('userprograms', __name__)
 
 
 @userprogram_routes.route('/current')
+@login_required
 def currentUsersPrograms () :
     # programs = Program.query(Program.name, UserProgram.user_id).join(Program.children).all()
     programs = (
         db.session.query(UserProgram, Program)
         .join(Program, UserProgram.program_id == Program.id)
-        .filter(UserProgram.user_id == 1) # hardcoded userid (1) 
+        .filter(UserProgram.user_id == current_user.id) # hardcoded userid (1) 
         .all()
     )# working but not formatted
     formatted_programs = [{
@@ -28,7 +29,7 @@ def currentUsersPrograms () :
             "is_completed": user_task.is_completed
             } for (user_task, task) in db.session.query(UserTask, Task)
                                             .join(Task, UserTask.task_id == Task.id)
-                                            .filter(UserTask.user_id == 1, Task.program_id == program.id) ## hardcoded user.id (1)
+                                            .filter(UserTask.user_id == current_user.id, Task.program_id == program.id) ## hardcoded user.id (1)
                                             .all()]
     } for (user_program, program) in programs]
 
