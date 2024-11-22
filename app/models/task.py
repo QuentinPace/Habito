@@ -16,3 +16,12 @@ class Task(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.current_timestamp(), nullable=False)
 
     user_tasks = db.relationship("UserTask", backref="tasks", cascade="all, delete-orphan")
+
+    def to_dict_basic(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "program_id": self.program_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
