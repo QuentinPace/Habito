@@ -7,7 +7,7 @@ def seed_user_programs():
 
     db.session.add_all([
         UserProgram(user_id=1, program_id=1, days_left=34),
-        UserProgram(user_id=1, program_id=3, days_left=53),
+        UserProgram(user_id=1, program_id=3, days_left=19),
         UserProgram(user_id=1, program_id=6, days_left=4),
 
         UserProgram(user_id=2, program_id=1, days_left=61),
