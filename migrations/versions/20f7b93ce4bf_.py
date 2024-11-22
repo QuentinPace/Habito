@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 557885a9ebc7
+Revision ID: 20f7b93ce4bf
 Revises: 
-Create Date: 2024-11-21 16:46:47.917865
+Create Date: 2024-11-22 11:35:24.510388
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '557885a9ebc7'
+revision = '20f7b93ce4bf'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -57,6 +57,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('program_id', sa.Integer(), nullable=False),
+    sa.Column('days_left', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.ForeignKeyConstraint(['program_id'], ['programs.id'], ondelete='CASCADE'),
@@ -83,6 +84,8 @@ def upgrade():
         op.execute(f"ALTER TABLE user_tasks SET SCHEMA {SCHEMA};")
         
     # ### end Alembic commands ###
+
+
 
 
 def downgrade():
