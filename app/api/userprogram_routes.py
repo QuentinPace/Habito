@@ -34,5 +34,5 @@ def currentUsersPrograms () :
 
     print(formatted_programs)
     print("--------------------------------------")
-    return jsonify(formatted_programs)
+    return jsonify({"user_programs": formatted_programs})
     
