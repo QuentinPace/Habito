@@ -21,7 +21,7 @@ def currentUsersPrograms () :
         "name": program.name,
         "description": program.description,
         "total-days": program.total_days,
-        # "days_left": user_program.days_left,
+        "days_left": user_program.days_left,
         "tasks": [{
             "id": user_task.id,
             "name": task.name,
