@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, make_response, request
 from flask_login import login_required, current_user
 from app.models import User, Program, Task, UserTask, UserProgram, db
+
+from .userprogram_routes import addProgramToCurrent
 
 program_routes = Blueprint('programs', __name__)
 
@@ -39,25 +41,45 @@ def postProgram () :
     if data["enroll"]:
         ## connecting the newly created program and tasks to the current users usertasks and user programs
 
-        new_user_program = UserProgram(user_id=current_user.id, program_id=new_program_from_db["id"], days_left=new_program_from_db["total_days"])
+        # new_user_program = UserProgram(user_id=current_user.id, program_id=new_program_from_db["id"], days_left=new_program_from_db["total_days"])
 
-        db.session.add(new_user_program)
-        db.session.commit()
-
-
-        new_tasks_from_db = Task.query.filter(Task.program_id == new_program_from_db["id"]).all()
-
-        user_task_list = [UserTask(user_id=current_user.id, task_id=db_task.id, is_completed=False) for db_task in new_tasks_from_db]
-
-        db.session.add_all(user_task_list)
-        db.session.commit()
+        # db.session.add(new_user_program)
+        # db.session.commit()
 
 
+        # new_tasks_from_db = Task.query.filter(Task.program_id == new_program_from_db["id"]).all()
 
+        # user_task_list = [UserTask(user_id=current_user.id, task_id=db_task.id, is_completed=False) for db_task in new_tasks_from_db]
 
+        # db.session.add_all(user_task_list)
+        # db.session.commit()
+        addProgramToCurrent(new_program_from_db["id"])
 
+    return programDetails(new_program_from_db["id"])
 
 
 
-    return jsonify(new_program_from_db)
+@program_routes.route("/<int:programId>")
+@login_required
+def programDetails(programId) :
+    target_program = Program.query.get(programId)
 
+    ## conditionals if not found here
+    if not target_program: 
+        return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
+
+    final_body = target_program.to_dict_basic()
+    db_tasks = Task.query.filter(Task.program_id == target_program.id).all()
+
+    final_body["tasks"] = [task.to_dict_basic() for task in db_tasks]
+
+    target_user_program = UserProgram.query.filter(UserProgram.program_id == target_program.id, UserProgram.user_id == current_user.id).first()
+    
+    if target_user_program:
+        final_body["is_enrolled"] = True
+        final_body["days_left"] = target_user_program.days_left
+    else:
+        final_body["is_enrolled"] = False
+
+
+    return make_response(jsonify(final_body), 200, {"Content-Type": "application/json"})
