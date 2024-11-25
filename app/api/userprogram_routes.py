@@ -65,8 +65,35 @@ def addProgramToCurrent (programId) :
     db.session.add_all(user_task_list)
     db.session.commit()
 
-    return make_response(jsonify({"message": "successfully created"}), 200, {"Content-Type": "application/json"})
+    return make_response(jsonify({"message": "successfully created"}), 201, {"Content-Type": "application/json"})
 
-@userprogram_routes.route('/<int:programId>/current', methods=["DELETE"])
+@userprogram_routes.route('/<int:userProgramId>/current', methods=["DELETE"])
 @login_required
-def addProgramToCurrent (programId) :
+def deleteProgramFromCurrent (userProgramId) :
+    user_program_from_db = UserProgram.query.filter(UserProgram.id == userProgramId, UserProgram.user_id == current_user.id).first()
+
+    if not user_program_from_db:
+        return make_response(jsonify({"message": "User program couldn't be found"}), 404, {"Content-Type": "application/json"})
+
+    task_ids_from_db =[ task.id for task in Task.query.filter(Task.program_id == user_program_from_db.program_id).all()]
+
+    # print("task ids=====================")
+    # print(task_ids_from_db)
+    # print("task ids=====================")
+
+    user_tasks_from_db = UserTask.query.filter(UserTask.task_id.in_(task_ids_from_db), UserTask.user_id == current_user.id).all()
+
+    # print("user tasks=====================")
+    # print(user_tasks_from_db)
+    # print("user tasks=====================")
+
+    for user_task in user_tasks_from_db:
+        db.session.delete(user_task)
+
+    db.session.delete(user_program_from_db)
+
+    db.session.commit()
+
+    return make_response(jsonify({"message": "successfully deleted"}), 200, {"Content-Type": "application/json"})
+
+

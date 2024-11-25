@@ -234,7 +234,7 @@ Deletes a program from the user's list of programs.
 * **Require Authentication:** true
 * **Request**
   * **Method:** DELETE
-  * **Route path:** `/api/userprograms/:userprogramId`
+  * **Route path:** `/api/userprograms/:userprogramId/current`
   * **Body:** none
 
 * **Successful Response**
