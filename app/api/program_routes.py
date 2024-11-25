@@ -18,6 +18,22 @@ def addTaskToProgram(programId):
     elif target_program.creator_id != current_user.id:
         return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
 
+    new_task = Task(program_id=target_program.id, name=request.json["name"])
+    db.session.add(new_task)
+    db.session.commit()
+
+    enrolled_user_ids = [ user_id for (user_id,) in UserProgram.query.with_entities(UserProgram.user_id).filter(UserProgram.program_id == programId).all()]
+
+    for user_id in enrolled_user_ids:
+        new_user_task = UserTask(is_completed=False, user_id=user_id, task_id=new_task.id)
+        db.session.add(new_user_task)
+
+    db.session.commit()
+        
+
+    return make_response(jsonify(new_task.to_dict_basic()), 200, {"Content-Type": "application/json"})
+
+
 
 @program_routes.route('/', methods=["POST"])
 @login_required
