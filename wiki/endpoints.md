@@ -247,7 +247,7 @@ Adds an existing program to the user's list of programs.
 * **Require Authentication:** true
 * **Request**
   * **Method:** POST
-  * **Route path:** `/api/userprograms/:programId/current`
+  * **Route path:** `/api/userprograms/:programId`
   * **Body:** none
 
 * **Successful Response**
@@ -295,7 +295,7 @@ Deletes a program from the user's list of programs.
 * **Require Authentication:** true
 * **Request**
   * **Method:** DELETE
-  * **Route path:** `/api/userprograms/:userprogramId/current`
+  * **Route path:** `/api/userprograms/:userprogramId`
   * **Body:** none
 
 * **Successful Response**

@@ -15,8 +15,8 @@ def deleteTaskFromProgram(programId, taskId):
 
     if not target_program:
         return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
-    # elif target_program.creator_id != current_user.id:
-    #     return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
+    elif target_program.creator_id != current_user.id:
+        return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
 
     target_task = Task.query.get(taskId)
 

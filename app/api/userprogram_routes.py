@@ -42,7 +42,7 @@ def currentUsersPrograms () :
     return jsonify({"user_programs": formatted_programs})
     
     
-@userprogram_routes.route('/<int:programId>/current', methods=["POST"])
+@userprogram_routes.route('/<int:programId>', methods=["POST"])
 @login_required
 def addProgramToCurrent (programId) :
 
@@ -67,7 +67,7 @@ def addProgramToCurrent (programId) :
 
     return make_response(jsonify({"message": "successfully created"}), 201, {"Content-Type": "application/json"})
 
-@userprogram_routes.route('/<int:userProgramId>/current', methods=["DELETE"])
+@userprogram_routes.route('/<int:userProgramId>', methods=["DELETE"])
 @login_required
 def deleteProgramFromCurrent (userProgramId) :
     user_program_from_db = UserProgram.query.filter(UserProgram.id == userProgramId, UserProgram.user_id == current_user.id).first()
