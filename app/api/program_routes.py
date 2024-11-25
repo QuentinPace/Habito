@@ -59,7 +59,43 @@ def postProgram () :
 
 
 
-@program_routes.route("/<int:programId>")
+@program_routes.route('/<int:programId>', methods=["PATCH"])
+@login_required
+def editProgram (programId) :
+    data = request.json
+
+    target_program = Program.query.get(programId)
+
+    if not target_program:
+        return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
+    elif target_program.creator_id != current_user.id:
+        return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
+
+    for key in data: # no validation yet
+        if key == "name":
+            target_program.name = data["name"]
+        elif key == "description":
+            target_program.description = data["description"]
+        elif key == "total_days":
+            target_program.total_days = data["total_days"]
+    db.session.commit()
+
+    return jsonify(target_program.to_dict_basic())
+
+    
+        
+
+
+    
+
+
+
+
+
+
+
+
+@program_routes.route("/<int:programId>", methods=["GET"])
 @login_required
 def programDetails(programId) :
     target_program = Program.query.get(programId)
@@ -83,3 +119,5 @@ def programDetails(programId) :
 
 
     return make_response(jsonify(final_body), 200, {"Content-Type": "application/json"})
+
+
