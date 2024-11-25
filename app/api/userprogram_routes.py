@@ -67,6 +67,6 @@ def addProgramToCurrent (programId) :
 
     return make_response(jsonify({"message": "successfully created"}), 200, {"Content-Type": "application/json"})
 
-@userprogram_routes.route('/<int:programId>/current', methods=["POST"])
+@userprogram_routes.route('/<int:programId>/current', methods=["DELETE"])
 @login_required
 def addProgramToCurrent (programId) :

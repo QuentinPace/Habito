@@ -213,6 +213,18 @@ Adds an existing program to the user's list of programs.
     }
     ```
 
+* **Error Response: Already enrolled**
+  * **Status Code:** 409
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "message": "Already enrolled"
+    }
+    ```
+
 ---
 
 ## Delete a Program from User's Programs
