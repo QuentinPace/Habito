@@ -13,7 +13,11 @@ def updateUserTask (userTaskId) :
     is_completed_str = request.args.get('is_completed', "true").strip()
     is_completed = False if is_completed_str != "true" else True
 
-    user_task = UserTask.query.get(userTaskId)  # havent double checked also need to troubleshoot if update task is better usinhg task.id or user_task.id for route
+    user_task = UserTask.query.get(userTaskId)
+
+    if not user_task:
+        return make_response(jsonify({"message": "UserTask couldn't be found"}), 404, {"Content-Type": "application/json"})
+
 
     if user_task.user_id != current_user.id:
          return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
@@ -22,5 +26,4 @@ def updateUserTask (userTaskId) :
 
     db.session.commit()
     
-
     return make_response(jsonify({"usertaskId": userTaskId, "UserTask": user_task.to_dict_basic(), "query is_compled res": is_completed}), 200, {"Content-Type": "application/json"})
