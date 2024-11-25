@@ -80,7 +80,7 @@ def editProgram (programId) :
             target_program.total_days = data["total_days"]
     db.session.commit()
 
-    return jsonify(target_program.to_dict_basic())
+    return make_response(jsonify({"message": "successfully updated"}), 200, {"Content-Type": "application/json"})
 
     
         
