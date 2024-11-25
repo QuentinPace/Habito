@@ -152,5 +152,20 @@ def programDetails(programId) :
     return make_response(jsonify(final_body), 200, {"Content-Type": "application/json"})
 
 
+@program_routes.route('/', methods=["GET"])
+def getPrograms () :
+    all_programs = Program.query.all()
+    formatted_programs = [{
+        **program.to_dict_basic(),
+         "tasks": [{
+            "id": task.id,
+            "name": task.name
+            } for task in Task.query.filter(Task.program_id == program.id).all()]
+        } for program in all_programs]
+
+    return make_response(jsonify({"all_programs": formatted_programs}), 200, {"Content-Type": "application/json"})
+    
+
+
 
 
