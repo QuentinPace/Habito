@@ -57,7 +57,7 @@ def addProgramToCurrent (programId) :
     user_task_list = [UserTask(user_id=current_user.id, task_id=db_task.id, is_completed=False) for db_task in new_tasks_from_db]
     db.session.add_all(user_task_list)
     db.session.commit()
-    # /:programId/tasks/:taskId
+
     return make_response(jsonify({"message": "successfully created"}), 200, {"Content-Type": "application/json"})
 
 
