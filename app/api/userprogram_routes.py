@@ -51,6 +51,11 @@ def addProgramToCurrent (programId) :
     if not program_from_db: 
         return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
 
+    already_enrolled = UserProgram.query.filter(UserProgram.program_id == programId, UserProgram.user_id == current_user.id).first()
+
+    if already_enrolled:
+        return make_response(jsonify({"message": "Already enrolled"}), 409, {"Content-Type": "application/json"})
+
     new_user_program = UserProgram(user_id=current_user.id, program_id=program_from_db["id"], days_left=program_from_db["total_days"])
     db.session.add(new_user_program)
     db.session.commit()
@@ -61,3 +66,7 @@ def addProgramToCurrent (programId) :
     db.session.commit()
 
     return make_response(jsonify({"message": "successfully created"}), 200, {"Content-Type": "application/json"})
+
+@userprogram_routes.route('/<int:programId>/current', methods=["POST"])
+@login_required
+def addProgramToCurrent (programId) :
