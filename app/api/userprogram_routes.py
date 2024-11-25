@@ -41,6 +41,7 @@ def currentUsersPrograms () :
     print("--------------------------------------")
     return jsonify({"user_programs": formatted_programs})
     
+    
 @userprogram_routes.route('/<int:programId>/current', methods=["POST"])
 @login_required
 def addProgramToCurrent (programId) :

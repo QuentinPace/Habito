@@ -1,25 +1,13 @@
-<<<<<<< HEAD
-from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User, Program, Task, UserTask, UserProgram, db
-
-=======
 from flask import Blueprint, jsonify, make_response, request
 from flask_login import login_required, current_user
 from app.models import User, Program, Task, UserTask, UserProgram, db
 
 from .userprogram_routes import addProgramToCurrent
 
->>>>>>> dev
 program_routes = Blueprint('programs', __name__)
 
 
 @program_routes.route('/', methods=["POST"])
-<<<<<<< HEAD
-def postProgram () :
-    print("------------in post program route---------------")
-    return "sample"
-=======
 @login_required
 def postProgram () :
     print("------------in post program route---------------")
@@ -95,4 +83,3 @@ def programDetails(programId) :
 
 
     return make_response(jsonify(final_body), 200, {"Content-Type": "application/json"})
->>>>>>> dev
