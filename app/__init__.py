@@ -10,8 +10,8 @@ from .api.auth_routes import auth_routes
 from .api.userprogram_routes import userprogram_routes
 from .api.program_routes import program_routes
 from .api.db_testing_routes import db_routes
-from .api.program_routes import program_routes
-from .api.userprogram_routes import userprogram_routes
+from .api.user_tasks_routes import usertasks_routes
+
 from .seeds import seed_commands
 from .config import Config
 
@@ -36,6 +36,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(db_routes, url_prefix='/api/db')
 app.register_blueprint(userprogram_routes, url_prefix='/api/userprograms')
 app.register_blueprint(program_routes, url_prefix='/api/programs')
+app.register_blueprint(usertasks_routes, url_prefix='/api/usertasks')
 db.init_app(app)
 Migrate(app, db)
 

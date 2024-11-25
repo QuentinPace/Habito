@@ -61,17 +61,3 @@ def addProgramToCurrent (programId) :
     db.session.commit()
 
     return make_response(jsonify({"message": "successfully created"}), 200, {"Content-Type": "application/json"})
-
-
-@userprogram_routes.route('/<int:programId>/tasks/<int:taskId>', methods=["PATCH"])
-@login_required
-def updateUserTask (programId, taskId) :
-
-    is_completed_str = request.args.get('is_completed', "true").strip()
-    is_completed = False if is_completed_str != "true" else True
-
-    user_task = UserTask.query.filter(UserTask.task_id == taskId).first()  # havent double checked also need to troubleshoot if update task is better usinhg task.id or user_task.id for route
-
-
-
-    return make_response(jsonify({"taskId": taskId, "programId": programId, "iscompletedstr": not is_completed}), 200, {"Content-Type": "application/json"})
