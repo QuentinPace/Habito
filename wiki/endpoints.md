@@ -466,3 +466,50 @@ Deletes a task from a program. Only the creator of the program can delete tasks.
 
 ---
 
+## Update User Task(s)
+
+Updates the status of a user task.
+
+* **Require Authentication:** true
+* **Request**
+  * **Method:** PATCH
+  * **Route path:** `/api/usertasks/:taskId?is_completed=<<true or false>>`
+  * **Body:** none
+
+* **Successful Response**
+  * **Status Code:** 201
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "message": "successfully updated"
+    }
+    ```
+
+* **Response when task is not found**
+  * **Status Code:** 404
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "message": "task not found"
+    }
+    ```
+
+* **Response when task is not the current user's**
+  * **Status Code:** 401
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "message": "Authorization required"
+    }
+    ```
+
+
