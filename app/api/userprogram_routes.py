@@ -24,10 +24,11 @@ def currentUsersPrograms () :
         "creator_id": program.creator_id,
         "name": program.name,
         "description": program.description,
-        "total-days": program.total_days,
+        "total_days": program.total_days,
         "days_left": user_program.days_left,
         "tasks": [{
             "id": user_task.id,
+            # maybe include task_id as well
             "name": task.name,
             "is_completed": user_task.is_completed
             } for (user_task, task) in db.session.query(UserTask, Task)
