@@ -7,6 +7,18 @@ from .userprogram_routes import addProgramToCurrent
 program_routes = Blueprint('programs', __name__)
 
 
+@program_routes.route("/<int:programId>/tasks", methods=["POST"])
+@login_required
+def addTaskToProgram(programId):
+
+    target_program = Program.query.get(programId)
+
+    if not target_program:
+        return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
+    elif target_program.creator_id != current_user.id:
+        return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
+
+
 @program_routes.route('/', methods=["POST"])
 @login_required
 def postProgram () :
@@ -39,20 +51,7 @@ def postProgram () :
     ## at this point it created the program and tasks in the programs table and the tasks table
 
     if data["enroll"]:
-        ## connecting the newly created program and tasks to the current users usertasks and user programs
 
-        # new_user_program = UserProgram(user_id=current_user.id, program_id=new_program_from_db["id"], days_left=new_program_from_db["total_days"])
-
-        # db.session.add(new_user_program)
-        # db.session.commit()
-
-
-        # new_tasks_from_db = Task.query.filter(Task.program_id == new_program_from_db["id"]).all()
-
-        # user_task_list = [UserTask(user_id=current_user.id, task_id=db_task.id, is_completed=False) for db_task in new_tasks_from_db]
-
-        # db.session.add_all(user_task_list)
-        # db.session.commit()
         addProgramToCurrent(new_program_from_db["id"])
 
     return programDetails(new_program_from_db["id"])
@@ -82,18 +81,6 @@ def editProgram (programId) :
 
     return make_response(jsonify({"message": "successfully updated"}), 200, {"Content-Type": "application/json"})
 
-    
-        
-
-
-    
-
-
-
-
-
-
-
 
 @program_routes.route("/<int:programId>", methods=["GET"])
 @login_required
@@ -119,5 +106,7 @@ def programDetails(programId) :
 
 
     return make_response(jsonify(final_body), 200, {"Content-Type": "application/json"})
+
+
 
 

@@ -41,6 +41,63 @@ Returns the information about the current user that is logged in.
 
 ---
 
+## Get All Programs
+
+Returns all available programs with their details.
+
+* **Require Authentication:** false
+* **Request**
+  * **Method:** GET
+  * **Route path:** `/api/programs`
+  * **Body:** none
+
+* **Successful Response**
+  * **Status Code:** 200
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "all_programs": [
+        {
+          "id": 1,
+          "creator_id": 2,
+          "name": "75 hard",
+          "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
+          "total_days": 75,
+          "tasks": [
+            {
+              "id": 3,
+              "name": "drink aqua"
+            },
+            {
+              "id": 4,
+              "name": "read 5 pages of a book"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "creator_id": null,
+          "name": "30 soft",
+          "description": "diet, exercise and read",
+          "total_days": 30,
+          "tasks": [
+            {
+              "id": 7,
+              "name": "run for 30 mins"
+            },
+            {
+              "id": 9,
+              "name": "don't smoke"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
 ## Get Current User's Programs/Daily Tasks
 
 Returns the programs and daily tasks for the current user.
