@@ -25,5 +25,7 @@ def updateUserTask (userTaskId) :
     user_task.is_completed = is_completed
 
     db.session.commit()
+
+    #
     
     return make_response(jsonify({"usertaskId": userTaskId, "UserTask": user_task.to_dict_basic(), "query is_compled res": is_completed}), 200, {"Content-Type": "application/json"})
