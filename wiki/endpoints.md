@@ -186,7 +186,7 @@ Adds an existing program to the user's list of programs.
 * **Require Authentication:** true
 * **Request**
   * **Method:** POST
-  * **Route path:** `/api/userprograms/:programId`
+  * **Route path:** `/api/userprograms/:programId/current`
   * **Body:** none
 
 * **Successful Response**

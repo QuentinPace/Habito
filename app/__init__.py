@@ -8,6 +8,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.userprogram_routes import userprogram_routes
+from .api.program_routes import program_routes
 from .api.db_testing_routes import db_routes
 from .api.program_routes import program_routes
 from .api.userprogram_routes import userprogram_routes
@@ -34,6 +35,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(db_routes, url_prefix='/api/db')
 app.register_blueprint(userprogram_routes, url_prefix='/api/userprograms')
+app.register_blueprint(program_routes, url_prefix='/api/programs')
 db.init_app(app)
 Migrate(app, db)
 
