@@ -127,12 +127,14 @@ Returns the programs and daily tasks for the current user.
           "days_left": 32,
           "tasks": [
             {
-              "id": 3,
+              "task_id": 1,
+              "user_task_id": 3,
               "name": "drink aqua",
               "is_completed": false
             },
             {
-              "id": 4,
+              "task_id": 1,
+              "user_task_id": 3,
               "name": "read 5 pages of a book",
               "is_completed": true
             }
@@ -148,12 +150,14 @@ Returns the programs and daily tasks for the current user.
           "days_left": 5,
           "tasks": [
             {
-              "id": 7,
+              "task_id": 1,
+              "user_task_id": 3,
               "name": "run for 30 mins",
               "is_completed": false
             },
             {
-              "id": 9,
+              "task_id": 1,
+              "user_task_id": 3,
               "name": "don't smoke",
               "is_completed": true
             }
@@ -505,7 +509,7 @@ Deletes a task from a program. Only the creator of the program can delete tasks.
 
     ```json
     {
-      "name": "run for 30 mins"
+      "message": "succefully deleted"
     }
     ```
 
@@ -518,6 +522,18 @@ Deletes a task from a program. Only the creator of the program can delete tasks.
     ```json
     {
       "message": "program not found"
+    }
+    ```
+
+* **Error Response: Task Not Found**
+  * **Status Code:** 404
+  * **Headers:**
+    * Content-Type: application/json
+  * **Body:**
+
+    ```json
+    {
+      "message": "task not found"
     }
     ```
 

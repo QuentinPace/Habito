@@ -27,8 +27,8 @@ def currentUsersPrograms () :
         "total_days": program.total_days,
         "days_left": user_program.days_left,
         "tasks": [{
-            "id": user_task.id,
-            # maybe include task_id as well
+            "user_task_id": user_task.id,
+            "task_id": task.id,
             "name": task.name,
             "is_completed": user_task.is_completed
             } for (user_task, task) in db.session.query(UserTask, Task)

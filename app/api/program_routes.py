@@ -7,6 +7,34 @@ from .userprogram_routes import addProgramToCurrent
 program_routes = Blueprint('programs', __name__)
 
 
+@program_routes.route("/<int:programId>/tasks/<int:taskId>", methods=["DELETE"])
+@login_required
+def deleteTaskFromProgram(programId, taskId):
+
+    target_program = Program.query.get(programId)
+
+    if not target_program:
+        return make_response(jsonify({"message": "Program couldn't be found"}), 404, {"Content-Type": "application/json"})
+    elif target_program.creator_id != current_user.id:
+        return make_response(jsonify({"message": "Authorization required"}), 401, {"Content-Type": "application/json"})
+
+    target_task = Task.query.get(taskId)
+
+    if not target_task:
+        return make_response(jsonify({"message": "Task couldn't be found"}), 404, {"Content-Type": "application/json"})
+
+    user_tasks = UserTask.query.filter(UserTask.task_id == target_task.id).all()
+
+    for user_task in user_tasks:
+        db.session.delete(user_task)
+
+    db.session.delete(target_task)
+    db.session.commit()
+        
+    return make_response(jsonify({"message": "succesfully deleted"}), 200, {"Content-Type": "application/json"})
+
+
+
 @program_routes.route("/<int:programId>/tasks", methods=["POST"])
 @login_required
 def addTaskToProgram(programId):
