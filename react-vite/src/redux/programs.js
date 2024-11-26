@@ -74,7 +74,6 @@ export default function programsReducer(state = initialState, { type, payload })
                     }
                 }
             }
-            console.log(state.programs)
             state.programs[i].tasks[j].is_completed = !state.programs[i].tasks[j].is_completed
             return JSON.parse(JSON.stringify(state))
         default:

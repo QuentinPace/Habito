@@ -1,12 +1,16 @@
-// import { useEffect } from "react"
-// import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { useParams } from "react-router-dom";
+import { getProgramThunk } from "../../redux/currentProgram";
+
 
 export default function ProgramDetailsPage () {
-    // const dispatch = useDispatch() 
+    const dispatch = useDispatch()
+    const { programId } = useParams();
 
-    // useEffect(() => {
-    //     dispatch(getAllUserProgramsThunk())
-    // }, [])
+    useEffect(() => {
+        dispatch(getProgramThunk(programId))
+    }, [])
 
 
     return (
