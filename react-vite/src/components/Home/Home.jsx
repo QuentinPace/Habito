@@ -14,7 +14,7 @@ export default function Home () {
     }, [user, dispatch])
 
     useEffect(() => {
-        if(userPrograms.length){ // this block runs after initial dispatch is done
+        if(userPrograms.length){ // this block runs after initial dispatch is done and when userPrograms changes
             let num_completed = 0
             let count = 0
             for(let i = 0 ; i < userPrograms.length; i++){
@@ -26,8 +26,9 @@ export default function Home () {
                 }
 
             }
-            const multiplier = Math.floor(100 / count)
-            setPercentageDone(num_completed * multiplier)
+            // const multiplier = Math.floor(100 / count)
+            // setPercentageDone(num_completed * multiplier)
+            setPercentageDone(Math.floor((num_completed / count) * 100))
             console.log(percentageDone)
         }
     }, [userPrograms])
@@ -54,7 +55,7 @@ export default function Home () {
         <main>
             <h1>Rendering</h1>
             <div className="progress-bar">
-                <div className="progress-bar-completed" style={{width: "50%"}}></div>
+                <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>
             </div>
         </main>
     )
