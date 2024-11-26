@@ -95,8 +95,8 @@ export default function Home () {
         for (let i = 0 ; i < userProgramList.length; i++){
             let currProgram = userProgramList[i]
             finalJSX.push((
-                <section key={`user-program-${i}`} className="user-program-item-container" onClick={() => navigate(currProgram.program_id)}>
-                    <header>
+                <section key={`user-program-${i}`} className="user-program-item-container">
+                    <header onClick={() => navigate(currProgram.program_id)}>
                         <div className="user-program-name"><h3>{currProgram.name}</h3></div>
                         <div className="user-program-days-left"><h3>{`${currProgram.days_left} days left!`}</h3></div>
                     </header>
