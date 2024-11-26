@@ -5,16 +5,27 @@ main {
     margin: 0 auto;
 }
 
+.user-program-item-container header:hover {
+    cursor: pointer;
+}
+
+.user-program-item-container header {
+    background-color: rgb(224, 224, 224);
+}
+
 .progress-bar {
     width: 50%;
     display: flex;
     justify-content: flex-start;
-    height: 20px;
+    height: 15px;
     border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .progress-bar-completed {
-    background-color: green;
+    background-color: rgb(95, 199, 95);
 }
 
 .user-program-item-container {
@@ -35,7 +46,8 @@ main {
 .user-task-item {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(192, 192, 192)
+    border-bottom: 1px solid rgb(192, 192, 192);
+    height: 45px;
 }
 
 .fa-reg-check-square,
@@ -53,4 +65,18 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.user-program-name {
+    display: flex;
+    align-items: center;
+}
+
+.user-task-item-name {
+    display: flex;
+    align-items: center;
+}
+
+.user-task-item-name h5 {
+    font-size: 17px;
 }

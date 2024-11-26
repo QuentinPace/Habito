@@ -45,7 +45,6 @@ export default function Home () {
             // const multiplier = Math.floor(100 / count)
             // setPercentageDone(num_completed * multiplier)
             setPercentageDone(Math.floor((num_completed / count) * 100))
-            console.log(percentageDone)
         }
     }, [userPrograms])
 
@@ -63,7 +62,6 @@ export default function Home () {
     }
 
     const handleCheckBoxClick = userTask => {
-        console.log(`${userTask}, now toggled`)
         dispatch(toggleUserTaskThunk(userTask.user_task_id))
     }
 
