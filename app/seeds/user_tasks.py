@@ -6,17 +6,17 @@ def seed_user_tasks():
     db.session.add_all([
         # user 1
         UserTask(user_id=1, task_id=1, is_completed=False),
-        UserTask(user_id=1, task_id=2, is_completed=False),
+        UserTask(user_id=1, task_id=2, is_completed=True),
         UserTask(user_id=1, task_id=3, is_completed=False),
-        UserTask(user_id=1, task_id=4, is_completed=False),
+        UserTask(user_id=1, task_id=4, is_completed=True),
         UserTask(user_id=1, task_id=5, is_completed=False),
         UserTask(user_id=1, task_id=6, is_completed=False),
 
-        UserTask(user_id=1, task_id=12, is_completed=False),
-        UserTask(user_id=1, task_id=13, is_completed=False),
-        UserTask(user_id=1, task_id=14, is_completed=False),
-        UserTask(user_id=1, task_id=15, is_completed=False),
-        UserTask(user_id=1, task_id=16, is_completed=False),
+        UserTask(user_id=1, task_id=12, is_completed=True),
+        UserTask(user_id=1, task_id=13, is_completed=True),
+        UserTask(user_id=1, task_id=14, is_completed=True),
+        UserTask(user_id=1, task_id=15, is_completed=True),
+        UserTask(user_id=1, task_id=16, is_completed=True),
 
         UserTask(user_id=1, task_id=27, is_completed=False),
         UserTask(user_id=1, task_id=28, is_completed=False),
@@ -27,21 +27,21 @@ def seed_user_tasks():
         ## user 2
         UserTask(user_id=2, task_id=1, is_completed=False),
         UserTask(user_id=2, task_id=2, is_completed=False),
-        UserTask(user_id=2, task_id=3, is_completed=False),
-        UserTask(user_id=2, task_id=4, is_completed=False),
+        UserTask(user_id=2, task_id=3, is_completed=True),
+        UserTask(user_id=2, task_id=4, is_completed=True),
         UserTask(user_id=2, task_id=5, is_completed=False),
         UserTask(user_id=2, task_id=6, is_completed=False),
 
-        UserTask(user_id=2, task_id=17, is_completed=False),
+        UserTask(user_id=2, task_id=17, is_completed=True),
         UserTask(user_id=2, task_id=18, is_completed=False),
         UserTask(user_id=2, task_id=19, is_completed=False),
-        UserTask(user_id=2, task_id=20, is_completed=False),
-        UserTask(user_id=2, task_id=21, is_completed=False),
+        UserTask(user_id=2, task_id=20, is_completed=True),
+        UserTask(user_id=2, task_id=21, is_completed=True),
 
         # user 3
-        UserTask(user_id=3, task_id=37, is_completed=False),
-        UserTask(user_id=3, task_id=38, is_completed=False),
-        UserTask(user_id=3, task_id=39, is_completed=False),
+        UserTask(user_id=3, task_id=37, is_completed=True),
+        UserTask(user_id=3, task_id=38, is_completed=True),
+        UserTask(user_id=3, task_id=39, is_completed=True),
         UserTask(user_id=3, task_id=40, is_completed=False)
 
     ])
