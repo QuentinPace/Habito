@@ -11,8 +11,22 @@ export default function Home () {
     const user = useSelector(state => state.session.user)
     const [percentageDone, setPercentageDone] = useState(0)
 
+    const progressMessages = [
+        "Just getting started",
+        "Just getting started",
+        "Making some progress",
+        "Still a ways to go",
+        "Moving along",
+        "Halfway there",
+        "More than halfway done",
+        "Getting closer",
+        "Almost done",
+        "Just a bit more",
+        "Finished, great work!"
+      ];
+
     useEffect(() => { // initial dispatch
-        dispatch(getAllUserProgramsThunk()) 
+        dispatch(getAllUserProgramsThunk())
     }, [user, dispatch])
 
     useEffect(() => {
@@ -102,7 +116,7 @@ export default function Home () {
 
     return (
         <main>
-            <h1>Rendering</h1>
+            <h1>{progressMessages[Math.floor(percentageDone / 10)]}</h1>
             <div className="progress-bar">
                 <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>
             </div>

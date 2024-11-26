@@ -43,6 +43,11 @@ main {
     font-size: 30px;
 }
 
+.fa-reg-check-square:hover,
+.fa-reg-square:hover {
+    cursor: pointer;
+}
+
 
 .user-task-is-completed-container {
     display: flex;
