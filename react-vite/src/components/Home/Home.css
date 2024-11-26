@@ -1,0 +1,11 @@
+.progress-bar {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.progress-bar-completed {
+    background-color: green;
+}
