@@ -4,7 +4,7 @@
   margin-right: 20px;
 }
 
-header {
+.header-nav {
   display: flex;
   justify-content: space-between;
 }

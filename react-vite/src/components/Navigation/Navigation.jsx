@@ -5,7 +5,7 @@ import "./Navigation.css";
 function Navigation() {
   const navigate = useNavigate()
   return (
-    <header>
+    <header className="header-nav">
       <div>
         <NavLink to="/">Home</NavLink>
       </div>

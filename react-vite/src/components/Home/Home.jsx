@@ -48,6 +48,27 @@ export default function Home () {
     else{
     }
 
+    const userTaskFormatter = userTaskList => {
+
+    }
+
+    const userProgramFormatter = userProgramList => {
+        const finalJSX = []
+        for (let i = 0 ; i < userProgramList.length; i++){
+            let currUserProgram = userProgramList[i]
+            finalJSX.push((
+                <section className="user-program-item-container">
+                    <header>
+                        <div className="user-program-name-container">{currUserProgram.name}</div>
+                        <div className="user-program-days-left-container">{`${currUserProgram.days_left} days left!`}</div>
+                    </header>
+                </section>
+            ))
+            
+        }
+        return finalJSX
+    }
+
 
 
 
@@ -56,6 +77,9 @@ export default function Home () {
             <h1>Rendering</h1>
             <div className="progress-bar">
                 <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>
+            </div>
+            <div className="user-program-list-container">
+                {userProgramFormatter(userPrograms)}
             </div>
         </main>
     )
