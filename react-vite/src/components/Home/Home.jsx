@@ -1,6 +1,7 @@
 import { getAllUserProgramsThunk } from "../../redux/programs"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa"
 import "./Home.css"
 
 export default function Home () {
@@ -45,20 +46,23 @@ export default function Home () {
             )
         }
     }
-    else{
-    }
 
     const userTaskFormatter = userTaskList => {
         const finalJSX = []
         for (let i = 0; i < userTaskList.length; i++){
             let currTask = userTaskList[i]
             finalJSX.push((
-                <div className="user-task-item-container">
-                    <div className="user-task-item-name"><h5>{currTask.name}</h5></div>
+                <div key={`user-task-${i}`} className="user-task-item">
+                    <div className="user-task-item-name">
+                        <h5>{currTask.name}</h5>
+                    </div>
+                    <div className="user-task-is-completed-container">
+                        <div className="user-task-is-completed">{currTask.is_completed ? <FaRegCheckSquare />: <FaRegSquare />}</div>
+                    </div>
                 </div>
             ))
         }
-
+        return finalJSX
     }
 
     const userProgramFormatter = userProgramList => {
@@ -66,10 +70,10 @@ export default function Home () {
         for (let i = 0 ; i < userProgramList.length; i++){
             let currProgram = userProgramList[i]
             finalJSX.push((
-                <section className="user-program-item-container">
+                <section key={`user-program-${i}`}className="user-program-item-container">
                     <header>
-                        <div className="user-program-name-container"><h3>{currProgram.name}</h3></div>
-                        <div className="user-program-days-left-container"><h3>{`${currProgram.days_left} days left!`}</h3></div>
+                        <div className="user-program-name"><h3>{currProgram.name}</h3></div>
+                        <div className="user-program-days-left"><h3>{`${currProgram.days_left} days left!`}</h3></div>
                     </header>
                     <ul className="user-task-list-container">
                         {userTaskFormatter(currProgram.tasks)}
