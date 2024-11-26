@@ -49,19 +49,32 @@ export default function Home () {
     }
 
     const userTaskFormatter = userTaskList => {
+        const finalJSX = []
+        for (let i = 0; i < userTaskList.length; i++){
+            let currTask = userTaskList[i]
+            finalJSX.push((
+                <div className="user-task-item-container">
+                    <div className="user-task-item-name"><h5>{currTask.name}</h5></div>
+                </div>
+            ))
+        }
 
     }
 
     const userProgramFormatter = userProgramList => {
         const finalJSX = []
         for (let i = 0 ; i < userProgramList.length; i++){
-            let currUserProgram = userProgramList[i]
+            let currProgram = userProgramList[i]
             finalJSX.push((
                 <section className="user-program-item-container">
                     <header>
-                        <div className="user-program-name-container">{currUserProgram.name}</div>
-                        <div className="user-program-days-left-container">{`${currUserProgram.days_left} days left!`}</div>
+                        <div className="user-program-name-container"><h3>{currProgram.name}</h3></div>
+                        <div className="user-program-days-left-container"><h3>{`${currProgram.days_left} days left!`}</h3></div>
                     </header>
+                    <ul className="user-task-list-container">
+                        {userTaskFormatter(currProgram.tasks)}
+                    </ul>
+
                 </section>
             ))
             
