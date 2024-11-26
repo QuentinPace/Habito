@@ -18,7 +18,7 @@ main {
 }
 
 .user-program-item-container {
-    width: 50%;
+    width: 100%;
 }
 
 .user-program-list-container {
@@ -30,4 +30,22 @@ main {
 .user-program-item-container header {
     display: flex;
     justify-content: space-between;
+}
+
+.user-task-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(192, 192, 192)
+}
+
+.fa-reg-check-square,
+.fa-reg-square {
+    font-size: 30px;
+}
+
+
+.user-task-is-completed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

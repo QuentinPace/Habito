@@ -553,12 +553,12 @@ Deletes a task from a program. Only the creator of the program can delete tasks.
 
 ## Update User Task(s)
 
-Updates the status of a user task.
+toggles the is_completed column of a user_task.
 
 * **Require Authentication:** true
 * **Request**
   * **Method:** PATCH
-  * **Route path:** `/api/usertasks/:taskId?is_completed=<<true or false>>`
+  * **Route path:** `/api/usertasks/:taskId`
   * **Body:** none
 
 * **Successful Response**

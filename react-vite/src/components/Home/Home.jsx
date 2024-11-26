@@ -2,6 +2,7 @@ import { getAllUserProgramsThunk } from "../../redux/programs"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa"
+import { toggleUserTaskThunk } from "../../redux/programs"
 import "./Home.css"
 
 export default function Home () {
@@ -47,6 +48,12 @@ export default function Home () {
         }
     }
 
+    const handleCheckBoxClick = userTask => {
+        console.log(`${userTask}, now toggled`)
+        dispatch(toggleUserTaskThunk(userTask.user_task_id))
+    }
+
+
     const userTaskFormatter = userTaskList => {
         const finalJSX = []
         for (let i = 0; i < userTaskList.length; i++){
@@ -57,7 +64,11 @@ export default function Home () {
                         <h5>{currTask.name}</h5>
                     </div>
                     <div className="user-task-is-completed-container">
-                        <div className="user-task-is-completed">{currTask.is_completed ? <FaRegCheckSquare />: <FaRegSquare />}</div>
+                        <div className="user-task-is-completed">
+                            {currTask.is_completed ? 
+                                <FaRegCheckSquare style={{color: "green"}}className="fa-reg-check-square" onClick={() => handleCheckBoxClick(currTask)}/> : 
+                                <FaRegSquare className="fa-reg-square" onClick={() => handleCheckBoxClick(currTask)}/>}
+                        </div>
                     </div>
                 </div>
             ))
