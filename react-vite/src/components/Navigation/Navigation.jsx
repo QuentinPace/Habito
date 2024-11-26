@@ -1,18 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 
 function Navigation() {
+  const navigate = useNavigate()
   return (
-    <ul>
-      <li>
+    <header>
+      <div>
         <NavLink to="/">Home</NavLink>
-      </li>
+      </div>
 
-      <li>
-        <ProfileButton />
-      </li>
-    </ul>
+      <div className="nav-buttons-container">
+        <div onClick={() => navigate("/")}>Home</div>
+        <div onClick={() => navigate("/browse")}>Browse</div>
+        <div onClick={() => navigate("/createprogram")}>Create a Program</div>
+        <div><ProfileButton /></div>
+      </div>
+    </header>
   );
 }
 

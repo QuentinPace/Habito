@@ -1,3 +1,3 @@
-import CreateProgramPage from "./CreateProgramPageProgramsPage";
+import CreateProgramPage from "./CreateProgramPage";
 
 export default CreateProgramPage
