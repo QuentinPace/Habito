@@ -3,10 +3,12 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa"
 import { toggleUserTaskThunk } from "../../redux/programs"
+import { useNavigate } from "react-router-dom"
 import "./Home.css"
 
 export default function Home () {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const userPrograms = useSelector(state => state.programs.programs)
     const user = useSelector(state => state.session.user)
     const [percentageDone, setPercentageDone] = useState(0)
@@ -93,7 +95,7 @@ export default function Home () {
         for (let i = 0 ; i < userProgramList.length; i++){
             let currProgram = userProgramList[i]
             finalJSX.push((
-                <section key={`user-program-${i}`}className="user-program-item-container">
+                <section key={`user-program-${i}`} className="user-program-item-container" onClick={() => navigate(currProgram.program_id)}>
                     <header>
                         <div className="user-program-name"><h3>{currProgram.name}</h3></div>
                         <div className="user-program-days-left"><h3>{`${currProgram.days_left} days left!`}</h3></div>

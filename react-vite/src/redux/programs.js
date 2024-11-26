@@ -27,7 +27,7 @@ export const toggleUserTaskThunk = (userTaskId, ) => async (dispatch)=> {
         method: "PATCH"
     })
     if(res.ok) {
-        const data = await res.json()
+        // const data = await res.json()
         dispatch(toggleUserTask(userTaskId))
     }
     else {

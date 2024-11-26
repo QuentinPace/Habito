@@ -1,8 +1,8 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+// import { useEffect } from "react"
+// import { useDispatch } from "react-redux"
 
 export default function BrowseProgramsPage () {
-    const dispatch = useDispatch() 
+    // const dispatch = useDispatch() 
 
     // useEffect(() => {
     //     dispatch(getAllUserProgramsThunk())
