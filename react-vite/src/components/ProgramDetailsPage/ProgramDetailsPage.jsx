@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useSearchParams } from "react-router-dom";
-import { getProgramThunk } from "../../redux/currentProgram";
+import { getProgramThunk, enrollProgramThunk, unenrollProgramThunk } from "../../redux/currentProgram";
 import "./ProgramDetailsPage.css"
 
 
@@ -17,6 +17,14 @@ export default function ProgramDetailsPage () {
 
     if (!Object.keys(program).length) { // fail safe to not get to code using program when undefined
         return <h1>loading...</h1>
+    }
+
+    const handleUnenroll = () => {
+        dispatch(unenrollProgramThunk(program.id))
+    }
+
+    const handleEnroll = () => {
+        dispatch(enrollProgramThunk(program.id))
     }
 
     return (
@@ -38,7 +46,7 @@ export default function ProgramDetailsPage () {
                             </div>
                             <div className="enroll-unenroll-button-container">
                             {/* this needs a conditional for if the user is not logged in take him to the login page */}
-                                {program.is_enrolled ? <button>Unenroll</button> : <button>Enroll</button>}
+                                {program.is_enrolled ? <button onClick={handleUnenroll}>Unenroll</button> : <button  onClick={handleEnroll}>Enroll</button>}
                             </div>
                         </footer>
                     </article>

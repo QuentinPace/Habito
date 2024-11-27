@@ -290,12 +290,12 @@ Adds an existing program to the user's list of programs.
 
 ## Delete a Program from User's Programs
 
-Deletes a program from the user's list of programs.
+Deletes a program from the user's list of programs by the user_program.id, but if <?by_program_id=true> is provided it deletes the user_program instance by its pragram_id column
 
 * **Require Authentication:** true
 * **Request**
   * **Method:** DELETE
-  * **Route path:** `/api/userprograms/:userprogramId`
+  * **Route path:** `/api/userprograms/:userprogramId<?by_program_id=true>--optional`
   * **Body:** none
 
 * **Successful Response**

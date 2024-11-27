@@ -18,6 +18,30 @@ export const getProgramThunk = (programId) => async (dispatch) => {
     }
 };
 
+export const enrollProgramThunk = (programId) => async dispatch => {
+    const res = await fetch(`/api/userprograms/${programId}`, {
+        method: "POST"
+    })
+    if(res.ok){
+        dispatch(getProgramThunk(programId))
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+}
+
+export const unenrollProgramThunk = (programId) => async dispatch => {
+    const res = await fetch(`/api/userprograms/${programId}?by_program_id=true`, {
+        method: "DELETE"
+    })
+    if(res.ok){
+        dispatch(getProgramThunk(programId))
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+}
+
 let initialState = {
     currentProgram: {}
 }

@@ -1,5 +1,6 @@
 .program-info-all-container {
     display: flex;
+    height: 900px;
 }
 
 .program-details-container {
@@ -8,4 +9,12 @@
 
 .program-info-all-container aside {
     width: 35%;
+}
+
+.program-length-container {
+    display: flex;
+}
+
+.program-length-enroll-container {
+    display: flex;
 }

@@ -70,7 +70,20 @@ def addProgramToCurrent (programId) :
 @userprogram_routes.route('/<int:userProgramId>', methods=["DELETE"])
 @login_required
 def deleteProgramFromCurrent (userProgramId) :
-    user_program_from_db = UserProgram.query.filter(UserProgram.id == userProgramId, UserProgram.user_id == current_user.id).first()
+
+    by_program_id_str = request.args.get('by_program_id', "false").strip() # allows me to find the userpropgram by the actual program.id value
+    by_program_id = True if by_program_id_str == "true" else False
+
+    if by_program_id:
+        print("==============================")
+        print("deleting by_program.program_id")
+        print("==============================")
+        user_program_from_db = UserProgram.query.filter(UserProgram.program_id == userProgramId, UserProgram.user_id == current_user.id).first()
+    else:
+        print("==============================")
+        print("deleting by_user_program.id")
+        print("==============================")
+        user_program_from_db = UserProgram.query.filter(UserProgram.id == userProgramId, UserProgram.user_id == current_user.id).first()
 
     if not user_program_from_db:
         return make_response(jsonify({"message": "User program couldn't be found"}), 404, {"Content-Type": "application/json"})
