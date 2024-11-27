@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import OpenModalButton from '../OpenModalButton'
+import AddTaskModal from "../AddTaskModal/AddTaskModal"
 
 export default function CreateProgramsPage () {
     const dispatch = useDispatch() 
     const user = useSelector(state => state.session.user)
     const [ enrollSelf, setEnrollSelf ] = useState(true)
+    const [description, setDescription] = useState("")
+    const [length, setLength] = useState("")
+    const [name, setName] = useState("")
+    const [tasks, setTasks] = useState([])
 
     if(!user) {
         return <h1>Log in to create a program!</h1>
@@ -21,17 +27,22 @@ export default function CreateProgramsPage () {
     }
 
     return (
-        <form className="create-spot-form">
+        <div className="create-spot-form">
             <div className="name-length-container"></div>
             <div className="desc-container"></div>
             <div className="tasks-container">
-                {/* map over created tasks */}
+                <div className="tasks-grid">
+                    {/* map over created tasks */}
+                </div>
+                <OpenModalButton
+                buttonText="Add Task"
+                modalComponent={<AddTaskModal />} />
             </div>
             <div className="enroll-confirm-container">
                 <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
                 <button onClick={submit}>Create</button>
             </div>
 
-        </form>
+        </div>
     )
 }
