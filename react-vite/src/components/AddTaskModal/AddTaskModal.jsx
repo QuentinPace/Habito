@@ -1,21 +1,39 @@
 import { useModal } from "../../context/Modal"
 import { useDispatch } from 'react-redux'
 import './AddTaskModal.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function AddTaskModal() {
+export default function AddTaskModal({ tasks, setTasks }) {
     const { closeModal } = useModal()
     const dispatch = useDispatch()
     const [taskName, setTaskName] = useState("")
-    console.log(taskName)
+    const [hasError, setHasError] = useState(false)
+    const [triedSubmitting, setTriedSubmitting] = useState(false)
+
+    const handleConfirmTask = () => {
+        setTriedSubmitting(true)
+        if(hasError) return
+        setTasks([...tasks, taskName])
+        closeModal()
+    }
+
+    useEffect(() => { // task name validator
+        if(taskName.length < 3 || taskName.length > 70){
+            setHasError(true)
+        }
+        else{
+            setHasError(false)
+        }
+    }, [setHasError, taskName])
 
     return (
         <>
             <h1>Add Task</h1>
                <h4>Task Name</h4>
-            <div className='unenroll-button-container'>
+            <div className='input-confirm-task-container'>
                 <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)}></input>
-                <button className='confirm-task-create' onClick={closeModal}>Add Task</button>
+                {(hasError && triedSubmitting) && <p className="error">Task name must be between 3 and 70 characters long.</p>}
+                <button disabled={hasError && triedSubmitting} className='confirm-task-create' onClick={handleConfirmTask}>Add Task</button>
             </div>
         </>
     )

@@ -26,6 +26,11 @@ export default function CreateProgramsPage () {
         console.log("poopy")
     }
 
+    useEffect(() => {
+        console.log("tasks changed buddy boy")
+        console.log(tasks)
+    }, [tasks])
+
     return (
         <div className="create-spot-form">
             <div className="name-length-container"></div>
@@ -36,7 +41,7 @@ export default function CreateProgramsPage () {
                 </div>
                 <OpenModalButton
                 buttonText="Add Task"
-                modalComponent={<AddTaskModal />} />
+                modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
             </div>
             <div className="enroll-confirm-container">
                 <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
