@@ -1,0 +1,26 @@
+.unenroll-button-container {
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+}
+
+.unenroll-button-container button {
+    height: 50%;
+    margin: 15px;
+}
+
+#modal-content h1 {
+    text-align: center;
+}
+
+.confirm-unenroll-button {
+    background-color: rgb(192, 69, 69);
+}
+
+.keep-button {
+    background-color: gray;
+}
+
+.are-you-sure-text {
+    text-align: center;
+}
