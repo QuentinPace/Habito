@@ -1,11 +1,11 @@
 import { useModal } from "../../context/Modal"
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import './AddTaskModal.css'
 import { useEffect, useState } from "react"
 
 export default function AddTaskModal({ tasks, setTasks }) {
     const { closeModal } = useModal()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const [taskName, setTaskName] = useState("")
     const [hasError, setHasError] = useState(false)
     const [triedSubmitting, setTriedSubmitting] = useState(false)

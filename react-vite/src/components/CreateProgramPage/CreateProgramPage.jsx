@@ -19,7 +19,6 @@ export default function CreateProgramsPage () {
     const enrollSelfHandler = e => {
         e.preventDefault()
         setEnrollSelf(!enrollSelf)
-
     }
 
     const submit = () => {
@@ -37,7 +36,11 @@ export default function CreateProgramsPage () {
             <div className="desc-container"></div>
             <div className="tasks-container">
                 <div className="tasks-grid">
-                    {/* map over created tasks */}
+                    {tasks.map(taskName => {
+                        return (
+                            <div key={taskName} className="created-task-container"><h6>{taskName}</h6></div>
+                        )
+                    })}
                 </div>
                 <OpenModalButton
                 buttonText="Add Task"
