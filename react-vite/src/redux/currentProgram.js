@@ -1,4 +1,4 @@
-const GET_PROGRAM = 'userPrograms/getAll';
+const GET_PROGRAM = 'programs/getOne';
 
 const getProgram = (program) => {
     return {
@@ -19,13 +19,13 @@ export const getProgramThunk = (programId) => async (dispatch) => {
 };
 
 let initialState = {
-    programs: {}
+    currentProgram: {}
 }
 
 export default function currentProgramReducer(state = initialState, { type, payload }) {
     switch (type) {
         case GET_PROGRAM:
-            return {program: payload}
+            return {currentProgram: payload}
         default:
             return state;
     }

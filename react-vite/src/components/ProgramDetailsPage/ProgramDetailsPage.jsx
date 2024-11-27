@@ -6,7 +6,7 @@ import { getProgramThunk } from "../../redux/currentProgram";
 
 export default function ProgramDetailsPage () {
     const dispatch = useDispatch()
-    const program = useSelector(state => state.currentProgram.program)
+    const program = useSelector(state => state.currentProgram.currentProgram)
     const user = useSelector(state => state.session.user)
     const { programId } = useParams();
 
@@ -14,7 +14,7 @@ export default function ProgramDetailsPage () {
         dispatch(getProgramThunk(programId))
     }, [])
 
-    if (!program) { // fail safe to not get to code using program when undefined
+    if (!Object.keys(program).length) { // fail safe to not get to code using program when undefined
         return <h1>loading...</h1>
     }
 
@@ -36,14 +36,23 @@ export default function ProgramDetailsPage () {
                                 </div>
                             </div>
                             <div className="enroll-unenroll-button-container">
+                            {/* this needs a conditional for if the user is not logged in take him to the login page */}
                                 {program.is_enrolled ? <button>Unenroll</button> : <button>Enroll</button>}
                             </div>
-
                         </footer>
                     </article>
 
                 </div>
                 <aside>
+                    <h2>Daily Tasks</h2>
+                    <ul className="program-tasks-list">
+                        {program.tasks.map((task) => {
+                            return (
+                                <div key={task.id}>{task.name}</div>
+                            )
+                        })}
+                    </ul>
+                    
 
                 </aside>
             </div>
