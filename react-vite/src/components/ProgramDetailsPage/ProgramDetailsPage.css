@@ -1,0 +1,11 @@
+.program-info-all-container {
+    display: flex;
+}
+
+.program-details-container {
+    width: 65%;
+}
+
+.program-info-all-container aside {
+    width: 35%;
+}

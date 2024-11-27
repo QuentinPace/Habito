@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useSearchParams } from "react-router-dom";
 import { getProgramThunk } from "../../redux/currentProgram";
+import "./ProgramDetailsPage.css"
 
 
 export default function ProgramDetailsPage () {
@@ -48,12 +49,13 @@ export default function ProgramDetailsPage () {
                     <ul className="program-tasks-list">
                         {program.tasks.map((task) => {
                             return (
-                                <div key={task.id}>{task.name}</div>
+                                <div key={task.id}>
+                                    <h6>{task.name}</h6>
+                                </div>
                             )
                         })}
                     </ul>
                     
-
                 </aside>
             </div>
             {user && user.id == program.creator_id && 
