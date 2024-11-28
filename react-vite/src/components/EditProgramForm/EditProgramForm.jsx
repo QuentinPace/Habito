@@ -1,23 +1,32 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import OpenModalButton from '../OpenModalButton'
 import AddTaskModal from "../AddTaskModal/AddTaskModal"
-import { createProgramThunk } from "../../redux/currentProgram"
+import { getProgramThunk } from "../../redux/currentProgram"
 import { FaRegTrashAlt } from "react-icons/fa"
 import "./EditProgramForm.css"
 
 export default function EditProgramForm () {
+    const { programId } = useParams();
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector(state => state.session.user)
-    const [enrollSelf, setEnrollSelf] = useState(true)
+    const program = useSelector(state => state.currentProgram.currentProgram)
     const [description, setDescription] = useState("")
     const [length, setLength] = useState("")
     const [name, setName] = useState("")
     const [tasks, setTasks] = useState([])
     const [errors, setErrors] = useState({})
     const [triedSubmitting, setTriedSubmitting] = useState(false)
+
+    useEffect(() => { // initial dispatch
+        dispatch(getProgramThunk(programId))
+    }, [dispatch, programId])
+
+    if (Object.keys(program).length && user){ // if the current user is not the creator return them to the programs detail page
+        if(program.creator_id != user.id) navigate(`/program/${programId}`)
+    }
 
     useEffect(() => { // validation useEffect
         const errors = {}
