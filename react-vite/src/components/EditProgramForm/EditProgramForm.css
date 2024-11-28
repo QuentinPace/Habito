@@ -1,4 +1,4 @@
-.create-spot-form {
+.edit-spot-form {
     background-color: ghostwhite;
     display: flex;
     flex-direction: row;
@@ -18,13 +18,13 @@
     display: flex;
 }
 
-.create-spot-form-left {
+.edit-spot-form-left {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.create-spot-form-right {
+.edit-spot-form-right {
     width: 50%;
 }
 

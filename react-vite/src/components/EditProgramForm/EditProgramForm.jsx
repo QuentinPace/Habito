@@ -5,9 +5,9 @@ import OpenModalButton from '../OpenModalButton'
 import AddTaskModal from "../AddTaskModal/AddTaskModal"
 import { createProgramThunk } from "../../redux/currentProgram"
 import { FaRegTrashAlt } from "react-icons/fa"
-import "./CreateProgramPage.css"
+import "./EditProgramForm.css"
 
-export default function CreateProgramsPage () {
+export default function EditProgramForm () {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector(state => state.session.user)
@@ -44,33 +44,9 @@ export default function CreateProgramsPage () {
     }, [description, length, name, setErrors, tasks])
 
     if(!user) {
-        return <h1>Log in to create a program!</h1>
+        return <h1>Log in to edit a program!</h1>
     }
 
-    const enrollSelfHandler = e => {
-        e.preventDefault()
-        setEnrollSelf(!enrollSelf)
-    }
-
-    const submit = async () => {
-        setTriedSubmitting(true)
-        if(Object.keys(errors).length) return
-        const newProgram = {
-            name,
-            description,
-            total_days: length,
-            enroll: enrollSelf,
-            tasks: tasks.map(name => {return {name}})
-        }
-        console.log(newProgram)
-        const programId = await dispatch(createProgramThunk(newProgram))
-        if(programId.errors) return (
-            <h1>Sorry there was a problem creating your program, try again later.</h1>
-        )
-        else {
-            navigate(`/program/${programId}`)
-        }
-    }
 
     const handleTaskDelete = targetInd => {
         const copy = tasks.map(task => task)
@@ -94,8 +70,8 @@ export default function CreateProgramsPage () {
     }
 
     return (
-        <main className="create-spot-form">
-            <div className="create-spot-form-left">
+        <main className="edit-spot-form">
+            <div className="edit-spot-form-left">
                 <div className="name-length-container">
                     <div className="name-input-container" >
                         {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
@@ -131,7 +107,7 @@ export default function CreateProgramsPage () {
                     </textarea>
                 </div>
             </div>
-            <div className="create-spot-form-right">
+            <div className="edit-spot-form-right">
                 <label>Tasks</label>
                 <div className="tasks-container">
                     {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
@@ -142,9 +118,8 @@ export default function CreateProgramsPage () {
                     buttonText="Add Task"
                     modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
                 </div>
-                <div className="enroll-confirm-container">
-                    <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
-                    <button onClick={submit}>Create</button>
+                <div className="confirm-container">
+                    <button>Finished</button>
                 </div>
             </div>
         </main>

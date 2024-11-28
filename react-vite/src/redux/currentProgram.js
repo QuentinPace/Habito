@@ -26,7 +26,7 @@ export const createProgramThunk = (programObj) => async dispatch => {
     })
     if(res.ok){
         const data = await res.json();
-        dispatch(getProgramThunk(data.id)) // this thunk might not even need a dispatch
+        // dispatch(getProgramThunk(data.id))
         return data.id
     } else {
         // const errors = await res.json();
