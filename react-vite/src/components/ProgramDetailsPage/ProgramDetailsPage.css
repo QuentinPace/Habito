@@ -1,6 +1,7 @@
 .program-info-all-container {
     display: flex;
     height: 500px;
+    width: 100%;
 }
 
 .program-details-container {

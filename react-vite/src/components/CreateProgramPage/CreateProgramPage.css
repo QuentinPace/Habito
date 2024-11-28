@@ -1,7 +1,8 @@
 .create-spot-form {
     background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
     height: 500px;
-    min-width: 300px;
     max-width: 900px;
     width: 50%;
 }
@@ -15,13 +16,21 @@
 
 .name-length-container {
     display: flex;
-    width: 100%;
+}
+
+.create-spot-form-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.create-spot-form-right {
+    width: 50%;
 }
 
 .desc-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .created-task-container {

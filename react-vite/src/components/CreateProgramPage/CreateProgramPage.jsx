@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import OpenModalButton from '../OpenModalButton'
 import AddTaskModal from "../AddTaskModal/AddTaskModal"
+import { createProgramThunk } from "../../redux/currentProgram"
 import "./CreateProgramPage.css"
 
 export default function CreateProgramsPage () {
-    // const dispatch = useDispatch() 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const user = useSelector(state => state.session.user)
     const [enrollSelf, setEnrollSelf] = useState(true)
     const [description, setDescription] = useState("")
@@ -35,9 +38,7 @@ export default function CreateProgramsPage () {
         else if(length.includes(".")){
             errors.length = "Length must be an integer."
         }
-        console.log(length)
         setErrors(errors)
-        console.log(errors)
 
     }, [description, length, name, setErrors, tasks])
 
@@ -50,65 +51,83 @@ export default function CreateProgramsPage () {
         setEnrollSelf(!enrollSelf)
     }
 
-    const submit = () => {
+    const submit = async () => {
         setTriedSubmitting(true)
         if(Object.keys(errors).length) return
-        console.log("submitted")
+        const newProgram = {
+            name,
+            description,
+            total_days: length,
+            enroll: enrollSelf,
+            tasks: tasks.map(name => {return {name}})
+        }
+        console.log(newProgram)
+        const programId = await dispatch(createProgramThunk(newProgram)) // this thunk might not even need a dispatch
+        if(programId.errors) return (
+            <h1>Sorry there was a problem creating your program, try again later.</h1>
+        )
+        else {
+            navigate(`/program/${programId}`)
+        }
     }
 
     return (
         <main className="create-spot-form">
-            <div className="name-length-container">
-                <div className="name-input-container" >
-                    {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
-                    <label>Program Name</label>
-                    <input
+            <div className="create-spot-form-left">
+                <div className="name-length-container">
+                    <div className="name-input-container" >
+                        {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
+                        <label>Program Name</label>
+                        <input
+                        type="text"
+                        value={name}
+                        placeholder="Program Name"
+                        onChange={e => setName(e.target.value)}>
+                        </input>
+                    </div>
+                    <div className="length-input-container" >
+                        {(errors.length && triedSubmitting) && <p className="error">{errors.length}</p>}
+                        <label>{"Program Length (days)"}</label>
+                        <input
+                        type="number"
+                        step="1"
+                        min="1"
+                        value={length}
+                        placeholder="Length(days)"
+                        onChange={e => setLength(e.target.value)}>
+                        </input>
+                    </div>
+                </div>
+                <div className="desc-container">
+                    {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
+                    <label>Description</label>
+                    <textarea
                     type="text"
-                    value={name}
-                    placeholder="Program Name"
-                    onChange={e => setName(e.target.value)}>
-                    </input>
-                </div>
-                <div className="length-input-container" >
-                    {(errors.length && triedSubmitting) && <p className="error">{errors.length}</p>}
-                    <label>{"Program Length (days)"}</label>
-                    <input
-                    type="number"
-                    step="1"
-                    min="1"
-                    value={length}
-                    placeholder="Length(days)"
-                    onChange={e => setLength(e.target.value)}>
-                    </input>
+                    value={description}
+                    placeholder="Description"
+                    onChange={e => setDescription(e.target.value)}>
+                    </textarea>
                 </div>
             </div>
-            <div className="desc-container">
-                {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
-                <label>Description</label>
-                <textarea
-                type="text"
-                value={description}
-                placeholder="Description"
-                onChange={e => setDescription(e.target.value)}>
-                </textarea>
-            </div>
-            <label>Tasks</label>
-            <div className="tasks-container">
-                {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
-                <div className="tasks-grid">
-                    {tasks.map(taskName => {
-                        return (
-                            <div key={taskName} className="created-task-container"><h6>{taskName}</h6></div>
-                        )
-                    })}
+            <div className="create-spot-form-right">
+                <label>Tasks</label>
+                <div className="tasks-container">
+                    {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
+                    <div className="tasks-grid">
+                        {tasks.map(taskName => {
+                            return (
+                                <div key={taskName} className="created-task-container"><h6>{taskName}</h6></div>
+                            )
+                        })}
+                    </div>
+                    <OpenModalButton
+                    buttonText="Add Task"
+                    modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
                 </div>
-                <OpenModalButton
-                buttonText="Add Task"
-                modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
-            </div>
-            <div className="enroll-confirm-container">
-                <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
-                <button onClick={submit}>Create</button>
+                <div className="enroll-confirm-container">
+                    <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
+                    <button onClick={submit}>Create</button>
+                </div>
             </div>
         </main>
     )

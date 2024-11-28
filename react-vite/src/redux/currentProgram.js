@@ -18,6 +18,22 @@ export const getProgramThunk = (programId) => async (dispatch) => {
     }
 };
 
+export const createProgramThunk = (programObj) => async dispatch => {
+    const res = await fetch(`/api/programs`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(programObj)
+    })
+    if(res.ok){
+        const data = await res.json();
+        dispatch(getProgramThunk(data.id)) // this thunk might not even need a dispatch
+        return data.id
+    } else {
+        // const errors = await res.json();
+        return {errors: true};
+    }
+}
+
 export const enrollProgramThunk = (programId) => async dispatch => {
     const res = await fetch(`/api/userprograms/${programId}`, {
         method: "POST"

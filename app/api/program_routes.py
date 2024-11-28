@@ -63,7 +63,7 @@ def addTaskToProgram(programId):
 
 
 
-@program_routes.route('/', methods=["POST"])
+@program_routes.route('', methods=["POST"])
 @login_required
 def postProgram () :
     print("------------in post program route---------------")
