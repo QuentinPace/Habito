@@ -34,6 +34,33 @@ export const createProgramThunk = (programObj) => async dispatch => {
     }
 }
 
+export const editProgramThunk = (addedTasks, deletedTasks, programDetails, programId) => async dispatch => {
+    const programDetailsRes = await fetch(`/api/programs/${programId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(programDetails)
+    })
+    if(programDetailsRes.ok){
+        for(let i = 0; i < addedTasks.length; i++){  // looping through added tasks and fetching the db
+            let addedTaskRes = await fetch(`/api/programs/${programId}/tasks`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(addedTasks[i])
+            })
+            if(!addedTaskRes.ok){
+                console.log("problem adding a task")
+            }
+        }
+        for(let i = 0; i < deletedTasks.length; i++){ // looping through deleted tasks and fetching the db
+            let deletedTaskRes = await fetch(`/api/programs/${programId}/tasks/${deletedTasks[i].id}`, {method: "DELETE"})
+            if(!deletedTaskRes.ok) console.log("problem deleting a task")
+        }
+        return programId
+    } else {
+        return {errors: true};
+    }
+}
+
 export const enrollProgramThunk = (programId) => async dispatch => {
     const res = await fetch(`/api/userprograms/${programId}`, {
         method: "POST"

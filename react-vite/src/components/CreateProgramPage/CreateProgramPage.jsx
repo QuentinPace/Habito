@@ -60,7 +60,8 @@ export default function CreateProgramsPage () {
             description,
             total_days: length,
             enroll: enrollSelf,
-            tasks: tasks.map(name => {return {name}})
+            // tasks: tasks.map(name => {return {name}})
+            tasks
         }
         console.log(newProgram)
         const programId = await dispatch(createProgramThunk(newProgram))
@@ -82,8 +83,8 @@ export default function CreateProgramsPage () {
         const finalJSX = []
         for(let i = 0; i < tasks.length; i++){
             finalJSX.push((
-                <div key={tasks[i]} className="created-task-container">
-                    <h6>{tasks[i]}</h6>
+                <div key={tasks[i].name} className="created-task-container">
+                    <h6>{tasks[i].name}</h6>
                     <button className="task-delete" onClick={() => handleTaskDelete(i)}>
                         <FaRegTrashAlt />
                     </button>

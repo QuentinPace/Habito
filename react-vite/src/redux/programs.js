@@ -1,11 +1,20 @@
 const GET_ALL_USER_PROGRAMS = 'userPrograms/getAll';
 const RESET_USER_PROGRAMS = 'userPrograms/reset'
 const TOGGLE_USER_TASK = "userTasks/toggle"
+const GET_ALL_PROGRAMS = 'programs/getAll';
+
 
 const getAllUserPrograms = (userPrograms) => {
     return {
         type: GET_ALL_USER_PROGRAMS,
         payload: userPrograms,
+    };
+};
+
+const getAllPrograms = (programs) => {
+    return {
+        type: GET_ALL_PROGRAMS,
+        payload: programs,
     };
 };
 
@@ -52,6 +61,17 @@ export const getAllUserProgramsThunk = () => async (dispatch) => {
     }
 };
 
+export const getAllProgramsThunk = () => async (dispatch) => {
+    const res = await fetch('/api/programs');
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getAllPrograms(data.all_programs));
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+};
+
 let initialState = {
     programs: {}
 }
@@ -59,6 +79,8 @@ let initialState = {
 export default function programsReducer(state = initialState, { type, payload }) {
     switch (type) {
         case GET_ALL_USER_PROGRAMS:
+            return {programs: payload}
+        case GET_ALL_PROGRAMS:
             return {programs: payload}
         case RESET_USER_PROGRAMS :
             return {...initialState}

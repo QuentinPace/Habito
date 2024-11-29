@@ -13,7 +13,7 @@ export default function AddTaskModal({ tasks, setTasks }) {
     const handleConfirmTask = () => {
         setTriedSubmitting(true)
         if(hasError) return
-        setTasks([...tasks, taskName])
+        setTasks([...tasks, {name: taskName}])
         closeModal()
     }
 

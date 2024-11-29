@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import OpenModalButton from '../OpenModalButton'
 import AddTaskModal from "../AddTaskModal/AddTaskModal"
-import { getProgramThunk } from "../../redux/currentProgram"
+import { getProgramThunk, editProgramThunk } from "../../redux/currentProgram"
 import { FaRegTrashAlt } from "react-icons/fa"
 import "./EditProgramForm.css"
 
@@ -17,12 +17,23 @@ export default function EditProgramForm () {
     const [length, setLength] = useState("")
     const [name, setName] = useState("")
     const [tasks, setTasks] = useState([])
+    const [initialTasks, setInitialTasks] = useState([])
     const [errors, setErrors] = useState({})
     const [triedSubmitting, setTriedSubmitting] = useState(false)
 
     useEffect(() => { // initial dispatch
         dispatch(getProgramThunk(programId))
     }, [dispatch, programId])
+
+    useEffect(() => {
+        if(Object.keys(program).length){
+            setName(program.name)
+            setDescription(program.description)
+            setLength(program.total_days.toString())
+            setTasks(program.tasks)
+            setInitialTasks(program.tasks)
+        }
+    }, [program])
 
     if (Object.keys(program).length && user){ // if the current user is not the creator return them to the programs detail page
         if(program.creator_id != user.id) navigate(`/program/${programId}`)
@@ -56,19 +67,40 @@ export default function EditProgramForm () {
         return <h1>Log in to edit a program!</h1>
     }
 
-
     const handleTaskDelete = targetInd => {
         const copy = tasks.map(task => task)
         copy.splice(targetInd, 1)
         setTasks(copy)
     }
 
+    const handleFinishedClick = async () => {
+        setTriedSubmitting(true)
+        if(Object.keys(errors).length) return
+        const addedTasks = tasks.filter(task => !task.id)
+        const keptTaskIds = tasks.filter(taskObj => taskObj.id).map(taskObj => taskObj.id)
+        const deletedTasks = initialTasks.filter(initTask => !keptTaskIds.includes(initTask.id))
+        const programDetailsObj = {
+            name,
+            description,
+            total_days: length
+        }
+        // console.log("deletedTasks")
+        // console.log(deletedTasks)
+        // console.log("keptTaskIds")
+        // console.log(keptTaskIds)
+        // console.log("addedTasks")
+        // console.log(addedTasks)
+        const idFromThunk = await dispatch(editProgramThunk(addedTasks, deletedTasks, programDetailsObj, program.id))
+        navigate(`/program/${idFromThunk}`)
+
+    }
+
     const taskFormatter = () => {
         const finalJSX = []
         for(let i = 0; i < tasks.length; i++){
             finalJSX.push((
-                <div key={tasks[i]} className="created-task-container">
-                    <h6>{tasks[i]}</h6>
+                <div key={tasks[i].name} className="created-task-container">
+                    <h6>{tasks[i].name}</h6>
                     <button className="task-delete" onClick={() => handleTaskDelete(i)}>
                         <FaRegTrashAlt />
                     </button>
@@ -128,7 +160,7 @@ export default function EditProgramForm () {
                     modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
                 </div>
                 <div className="confirm-container">
-                    <button>Finished</button>
+                    <button onClick={handleFinishedClick}>Finished</button>
                 </div>
             </div>
         </main>
