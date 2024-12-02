@@ -2,5 +2,18 @@
 } */
 
 .browse-program-item {
-    border: 1px solid black;
+    margin: 30px 100px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.browse-program-item:hover {
+    cursor: pointer;
+}
+
+.browse-header {
+    font-size: 25px;
+    font-weight: 600;
 }

@@ -18,7 +18,7 @@ export const getProgramThunk = (programId) => async (dispatch) => {
     }
 };
 
-export const createProgramThunk = (programObj) => async dispatch => {
+export const createProgramThunk = (programObj) => async () => {
     const res = await fetch(`/api/programs`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -34,7 +34,7 @@ export const createProgramThunk = (programObj) => async dispatch => {
     }
 }
 
-export const editProgramThunk = (addedTasks, deletedTasks, programDetails, programId) => async dispatch => {
+export const editProgramThunk = (addedTasks, deletedTasks, programDetails, programId) => async () => {
     const programDetailsRes = await fetch(`/api/programs/${programId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },

@@ -58,7 +58,7 @@ export default function Home () {
         }
         else{
             return (
-                <h1>Loading...</h1>
+                <h1>Create a program to get started!</h1>
             )
         }
     }

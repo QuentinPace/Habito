@@ -1,21 +1,78 @@
 .program-info-all-container {
     display: flex;
-    height: 500px;
     width: 100%;
 }
 
 .program-details-container {
     width: 65%;
+    background-color: rgb(255, 255, 255);
+    margin: 50px;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .program-info-all-container aside {
     width: 35%;
+    background-color: rgb(255, 255, 255);
+    margin: 50px;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .program-length-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program-length-container h5 {
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .program-length-enroll-container {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+
 }
+
+.enroll-edit-buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.enroll-edit-buttons-container button {
+    width: 50%;
+    margin: 10px;
+}
+
+.program-tasks-list {
+    padding-left: 0px;
+}
+
+.description-box p {
+    line-height: 1.8;
+}
+
+.program-tasks-list div h6 {
+    font-size: 17px;
+    font-weight: 400;
+    margin: 22px;
+}
+
+.program-tasks-list div {
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+
+.length-days-number-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+

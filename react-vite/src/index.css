@@ -25,6 +25,10 @@ button {
     border: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 span {
     font-family: "Righteous", sans-serif;
     font-weight: 400;

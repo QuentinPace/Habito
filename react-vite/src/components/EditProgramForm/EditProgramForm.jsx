@@ -111,58 +111,59 @@ export default function EditProgramForm () {
     }
 
     return (
-        <main className="edit-spot-form">
-            <div className="edit-spot-form-left">
-                <div className="name-length-container">
-                    <div className="name-input-container" >
-                        {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
-                        <label>Program Name</label>
-                        <input
+        <div className="edit-spot-form-container">
+            <main className="edit-spot-form">
+                <div className="edit-spot-form-left">
+                    {/* <div className="name-length-container"> */}
+                        <div className="name-input-container" >
+                            {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
+                            <label>Program Name</label>
+                            <input
+                            type="text"
+                            value={name}
+                            placeholder="Program Name"
+                            onChange={e => setName(e.target.value)}>
+                            </input>
+                        </div>
+                        <div className="length-input-container" >
+                            {(errors.length && triedSubmitting) && <p className="error">{errors.length}</p>}
+                            <label>{"Program Length (days)"}</label>
+                            <input
+                            type="number"
+                            step="1"
+                            min="1"
+                            value={length}
+                            placeholder="Length(days)"
+                            onChange={e => setLength(e.target.value)}>
+                            </input>
+                        </div>
+                    {/* </div> */}
+                    <div className="desc-container">
+                        {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
+                        <label>Description</label>
+                        <textarea
                         type="text"
-                        value={name}
-                        placeholder="Program Name"
-                        onChange={e => setName(e.target.value)}>
-                        </input>
-                    </div>
-                    <div className="length-input-container" >
-                        {(errors.length && triedSubmitting) && <p className="error">{errors.length}</p>}
-                        <label>{"Program Length (days)"}</label>
-                        <input
-                        type="number"
-                        step="1"
-                        min="1"
-                        value={length}
-                        placeholder="Length(days)"
-                        onChange={e => setLength(e.target.value)}>
-                        </input>
+                        value={description}
+                        placeholder="Description"
+                        onChange={e => setDescription(e.target.value)}>
+                        </textarea>
                     </div>
                 </div>
-                <div className="desc-container">
-                    {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
-                    <label>Description</label>
-                    <textarea
-                    type="text"
-                    value={description}
-                    placeholder="Description"
-                    onChange={e => setDescription(e.target.value)}>
-                    </textarea>
-                </div>
-            </div>
-            <div className="edit-spot-form-right">
-                <label>Tasks</label>
-                <div className="tasks-container">
-                    {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
-                    <div className="tasks-grid">
-                        {taskFormatter()}
+                <div className="edit-spot-form-right">
+                    <label>Tasks</label>
+                    <div className="tasks-container">
+                        {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
+                        <div className="tasks-list-container">
+                            {taskFormatter()}
+                        </div>
                     </div>
                     <OpenModalButton
-                    buttonText="Add Task"
-                    modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
+                        className="add-task-button"
+                        buttonText="Add Task"
+                        modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
                 </div>
-                <div className="confirm-container">
-                    <button onClick={handleFinishedClick}>Finished</button>
-                </div>
-            </div>
-        </main>
+            </main>
+        <button className="finish-program-form-button" onClick={handleFinishedClick}>Finished</button>
+        </div>
     )
 }

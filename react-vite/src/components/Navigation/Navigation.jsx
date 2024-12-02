@@ -1,4 +1,4 @@
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import { FaCheckCircle } from "react-icons/fa"
 import "./Navigation.css";
@@ -6,7 +6,7 @@ import "./Navigation.css";
 function Navigation() {
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.pathname)
+
   return (
     <header className="header-nav">
       <div>

@@ -95,9 +95,9 @@ export default function CreateProgramsPage () {
     }
 
     return (
-        <div className="create-program-form">
-            <div className="create-program-form-left">
-                <div className="name-length-container">
+        <div className="create-spot-form-container">
+            <div className="create-program-form">
+                <div className="create-program-form-left">
                     <div className="name-input-container" >
                         {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
                         <label>Program Name</label>
@@ -120,34 +120,37 @@ export default function CreateProgramsPage () {
                         onChange={e => setLength(e.target.value)}>
                         </input>
                     </div>
+                    <div className="desc-container">
+                        {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
+                        <label>Description</label>
+                        <textarea
+                        type="text"
+                        value={description}
+                        placeholder="Description"
+                        onChange={e => setDescription(e.target.value)}>
+                        </textarea>
+                    </div>
                 </div>
-                <div className="desc-container">
-                    {(errors.description && triedSubmitting) && <p className="error">{errors.description}</p>}
-                    <label>Description</label>
-                    <textarea
-                    type="text"
-                    value={description}
-                    placeholder="Description"
-                    onChange={e => setDescription(e.target.value)}>
-                    </textarea>
-                </div>
-            </div>
-            <div className="create-program-form-right">
-                <label>Tasks</label>
-                <div className="tasks-container">
-                    {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
-                    <div className="tasks-grid">
-                        {taskFormatter()}
+                <div className="create-program-form-right">
+                    <label>Tasks</label>
+                    <div className="tasks-container">
+                        {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
+                        <div className="tasks-list-container">
+                            {taskFormatter()}
+                        </div>
                     </div>
                     <OpenModalButton
-                    buttonText="Add Task"
-                    modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
-                </div>
-                <div className="enroll-confirm-container">
-                    <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
-                    <button onClick={submit}>Create</button>
+                        className="add-task-button"
+                        buttonText="Add Task"
+                        modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
+                    <button  className="add-task-button" onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
+                    {/* <div className="enroll-confirm-container">
+                        <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
+                        <button onClick={submit}>Create</button>
+                    </div> */}
                 </div>
             </div>
+            <button className="finish-program-form-button" onClick={submit}>Create</button>
         </div>
     )
 }

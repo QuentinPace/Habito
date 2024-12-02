@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProgramThunk, enrollProgramThunk } from "../../redux/currentProgram";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmUnenrollModal from "../ConfirmUnenrollModal/ConfirmUnenrollModal";
@@ -12,10 +12,11 @@ export default function ProgramDetailsPage () {
     const program = useSelector(state => state.currentProgram.currentProgram)
     const user = useSelector(state => state.session.user)
     const { programId } = useParams();
+    const navigate = useNavigate()
 
     useEffect(() => { //initial dispatch
         dispatch(getProgramThunk(programId))
-    }, [])
+    }, [dispatch, programId])
 
     if (!Object.keys(program).length) { // fail safe to not get to code using program when undefined
         return <h1>loading...</h1>
@@ -39,17 +40,17 @@ export default function ProgramDetailsPage () {
                             <div className="program-length-container">
                                 <h5>{`length(days)-`}</h5>
                                 <div className="length-days-number-container">
-                                    <h4>{program.total_days}</h4>
+                                    {program.total_days}
                                 </div>
                             </div>
-                            <div className="enroll-unenroll-button-container">
+                            <div className="enroll-edit-buttons-container">
                             {/* this needs a conditional for if the user is not logged in take him to the login page */}
                                 {/* {program.is_enrolled ? <button onClick={handleUnenroll}>Unenroll</button> : <button  onClick={handleEnroll}>Enroll</button>} */}
                                 {program.is_enrolled ? <OpenModalButton
                                     buttonText='Unenroll'
                                     modalComponent={<ConfirmUnenrollModal programId={program.id}/>} />: <button  onClick={handleEnroll}>Enroll</button>}
                                 {user && user.id == program.creator_id && 
-                                    <button className="creator-actions">im the creator dawg, soon to be creator actions section</button>
+                                    <button className="creator-actions" onClick={() => navigate(`/program/${program.id}/edit`)}>edit</button>
                                 }
                             </div>
                         </footer>

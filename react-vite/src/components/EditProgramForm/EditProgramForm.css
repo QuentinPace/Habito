@@ -1,10 +1,13 @@
 .edit-spot-form {
-    background-color: ghostwhite;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
-    height: 500px;
+    height: 300px;
     max-width: 900px;
     width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 15px;
 }
 
 .name-length-container div {
@@ -22,10 +25,20 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    justify-content: space-between;
+    padding: 20px 0px;
+    margin-right: 20px;
 }
 
 .edit-spot-form-right {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-task-button {
+    margin: 10px;
+    height: 29px;
 }
 
 .desc-container {
@@ -33,14 +46,101 @@
     flex-direction: column;
 }
 
+.desc-container textarea {
+    height: 100px;
+}
+
 .created-task-container {
-    background-color: grey;
+    background-color: #dcdfe4;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    border-radius: 5px;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.created-task-container h6 {
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.task-delete {
+    height: 50px;
+    border-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .tasks-container {
     width: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .task-delete svg {
     font-size: 20px;
+}
+
+.tasks-list-container {
+    overflow-y: auto; /* Vertical scroll */
+    height: 200px;
+}
+
+.edit-spot-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.finish-program-form-button {
+    margin: 25px;
+    width: 80px;
+    height: 30px
+}
+
+.tasks-list-container::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+}
+.tasks-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+.tasks-list-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px; 
+    border: 2px solid #f1f1f1;
+}
+.tasks-list-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.tasks-list-container::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+
+
+.desc-container textarea::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+}
+.desc-container textarea::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+.desc-container textarea::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px; 
+    border: 2px solid #f1f1f1;
+}
+.desc-container textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.desc-container textarea::-webkit-scrollbar-corner {
+    background: #f1f1f1;
 }
