@@ -95,8 +95,8 @@ export default function CreateProgramsPage () {
     }
 
     return (
-        <main className="create-spot-form">
-            <div className="create-spot-form-left">
+        <div className="create-program-form">
+            <div className="create-program-form-left">
                 <div className="name-length-container">
                     <div className="name-input-container" >
                         {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
@@ -132,7 +132,7 @@ export default function CreateProgramsPage () {
                     </textarea>
                 </div>
             </div>
-            <div className="create-spot-form-right">
+            <div className="create-program-form-right">
                 <label>Tasks</label>
                 <div className="tasks-container">
                     {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}
@@ -148,6 +148,6 @@ export default function CreateProgramsPage () {
                     <button onClick={submit}>Create</button>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

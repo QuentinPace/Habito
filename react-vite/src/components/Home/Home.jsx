@@ -1,7 +1,7 @@
 import { getAllUserProgramsThunk } from "../../redux/programs"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { FaRegCheckSquare, FaRegSquare } from "react-icons/fa"
+import { FaRegCheckCircle, FaRegCircle } from "react-icons/fa"
 import { toggleUserTaskThunk } from "../../redux/programs"
 import { useNavigate } from "react-router-dom"
 import "./Home.css"
@@ -80,8 +80,8 @@ export default function Home () {
                     <div className="user-task-is-completed-container">
                         <div className="user-task-is-completed">
                             {currTask.is_completed ? 
-                                <FaRegCheckSquare style={{color: "green"}}className="fa-reg-check-square" onClick={() => handleCheckBoxClick(currTask)}/> : 
-                                <FaRegSquare className="fa-reg-square" onClick={() => handleCheckBoxClick(currTask)}/>}
+                                <FaRegCheckCircle style={{color: "rgb(44, 118, 255)"}}className="fa-reg-check-square" onClick={() => handleCheckBoxClick(currTask)}/> : 
+                                <FaRegCircle className="fa-reg-square" onClick={() => handleCheckBoxClick(currTask)}/>}
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ export default function Home () {
 
 
     return (
-        <main>
+        <main className="home-page">
             <h1>{progressMessages[Math.floor(percentageDone / 10)]}</h1>
             <div className="progress-bar">
                 <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>

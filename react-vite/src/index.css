@@ -1,1 +1,32 @@
-/* TODO: Add sitewide styles */
+/* TODO: Add sitewide styles 8*/
+body {
+    background-color: #dcdfe4;
+    margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+label,
+button,
+div,
+h6 {
+    color: black;
+    font-family: "Roboto", sans-serif;
+}
+
+button {
+    background-color: rgb(44, 118, 255);
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+span {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

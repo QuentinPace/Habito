@@ -2,13 +2,65 @@
   position: absolute;
   right: 0;
   margin-right: 20px;
+  margin-top: 146px;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  border-left: 1px solid rgb(179, 179, 179);
+  border-right: 1px solid rgb(179, 179, 179);
+  padding: 10px;
 }
 
 .header-nav {
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  margin-bottom: 50px;
 }
 
 .nav-buttons-container {
   display: flex;
+  align-items: end;
+}
+
+.logo-nav {
+  font-size: 50px;
+}
+
+.logo-check-nav {
+  font-size: 37px;
+}
+
+.current-nav-item {
+  background-color: #dcdfe4;
+}
+
+.nav-buttons-container div {
+  height: 25px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  margin-bottom: 5px;
+}
+
+.nav-buttons-container div h6 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.logo-nav :hover {
+  cursor: pointer;
+}
+
+.nav-buttons-container div :hover {
+  cursor: pointer;
+}
+
+.profile-dropdown p {
+  margin: 5px;
 }

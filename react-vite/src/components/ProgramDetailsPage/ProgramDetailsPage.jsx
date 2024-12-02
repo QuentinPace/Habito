@@ -48,6 +48,9 @@ export default function ProgramDetailsPage () {
                                 {program.is_enrolled ? <OpenModalButton
                                     buttonText='Unenroll'
                                     modalComponent={<ConfirmUnenrollModal programId={program.id}/>} />: <button  onClick={handleEnroll}>Enroll</button>}
+                                {user && user.id == program.creator_id && 
+                                    <button className="creator-actions">im the creator dawg, soon to be creator actions section</button>
+                                }
                             </div>
                         </footer>
                     </article>
@@ -67,9 +70,6 @@ export default function ProgramDetailsPage () {
                     
                 </aside>
             </div>
-            {user && user.id == program.creator_id && 
-            <div className="creator-actions">im the creator dawg, soon to be creator actions section</div>
-            }
         </main>
     )
 }

@@ -1,4 +1,4 @@
-.create-spot-form {
+.create-programform {
     background-color: ghostwhite;
     display: flex;
     flex-direction: row;
@@ -18,13 +18,13 @@
     display: flex;
 }
 
-.create-spot-form-left {
+.create-program-form-left {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.create-spot-form-right {
+.create-program-form-right {
     width: 50%;
 }
 

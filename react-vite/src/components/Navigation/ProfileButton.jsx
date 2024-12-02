@@ -42,20 +42,24 @@ function ProfileButton() {
     navigate("/")
   };
 
+  let style = {
+    "margin-top": user ? "144px" : "124px"
+
+  }
+
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
+      <h6 onClick={toggleMenu}>
+        {/* <FaUserCircle /> */}
+        account
+      </h6>
       {showMenu && (
-        <ul className={"profile-dropdown"} ref={ulRef}>
+        <ul className={"profile-dropdown"} style={style}ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
+              <p>{user.username}</p>
+              <p>{user.email}</p>
+              <button onClick={logout}>Log Out</button>
             </>
           ) : (
             <>
