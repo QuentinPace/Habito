@@ -7,17 +7,24 @@ import "./BrowseProgramsPage.css"
 export default function BrowseProgramsPage () {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const user = useSelector(state => state.session.user)
     const programs  = useSelector(state => state.programs.programs)
 
     useEffect(() => {
         dispatch(getAllProgramsThunk())
     }, [dispatch])
 
+    if(!user) {
+        return <h1>Log in to browse programs!</h1>
+    }
+
     if(!programs.length){
         return (
             <h1>Loading</h1>
         )
     }
+
+
 
     // const tasksFormatter = tasks => {
     //     const finalJSX = []
