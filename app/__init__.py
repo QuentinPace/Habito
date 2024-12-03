@@ -9,7 +9,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.userprogram_routes import userprogram_routes
 from .api.program_routes import program_routes
-from .api.db_testing_routes import db_routes
+from .api.db_routes import db_routes
 from .api.user_tasks_routes import usertasks_routes
 
 from .seeds import seed_commands
