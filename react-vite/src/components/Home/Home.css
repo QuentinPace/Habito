@@ -7,20 +7,29 @@
 
 .user-program-item-container header:hover {
     cursor: pointer;
+    background-color: rgb(230, 230, 230);
 }
 
 .user-program-item-container header {
-    background-color: #dcdfe4;
-    padding: 10px;
-    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom: 1px solid rgb(37, 37, 37);
     /* border: 1px solid black; */
 }
 
+.user-program-item-container header div h3 {
+    margin: 0px;
+}
+
 .progress-bar {
-    width: 50%;
+    min-width: 300px;
+    max-width: 940px;
+    width: 66%;
     display: flex;
     justify-content: flex-start;
-    height: 15px;
+    height: 20px;
     border: 1px solid black;
     border-radius: 5px;
     overflow: hidden;
@@ -35,17 +44,15 @@
 .user-program-item-container {
     /* width: 90%; */
     background-color: white;
-    padding: 20px;
     margin: 10px;
     border-radius: 15px;
     box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.11);
-    padding-bottom: 5px;
 }
 
 .user-program-list-container {
     min-width: 300px;
     max-width: 940px;
-    width: 60%;
+    width: 70%;
 }
 
 .user-program-item-container header {
@@ -89,4 +96,12 @@
 
 .user-task-item-name h5 {
     font-size: 17px;
+    font-weight: 400;
+}
+
+.user-task-list-container {
+    padding: 10px;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }

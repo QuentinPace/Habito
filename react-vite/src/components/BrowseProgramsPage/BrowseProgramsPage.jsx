@@ -24,19 +24,6 @@ export default function BrowseProgramsPage () {
         )
     }
 
-
-
-    // const tasksFormatter = tasks => {
-    //     const finalJSX = []
-    //     for (let i = 0; i < tasks.length; i ++){
-    //         finalJSX.push((
-    //             <div className="browse-task-item"><p>{tasks[i].name}</p></div>
-    //         ))
-    //     }
-    //     return finalJSX
-    // }
-
-
     const programsFormatter = () => {
         const finalJSX = []
         for(let i = 0; i < programs.length; i ++){

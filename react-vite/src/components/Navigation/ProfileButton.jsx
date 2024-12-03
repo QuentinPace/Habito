@@ -42,7 +42,7 @@ function ProfileButton() {
   };
 
   let style = {
-    "margin-top": user ? "144px" : "124px"
+    "marginTop": user ? "144px" : "124px"
 
   }
 

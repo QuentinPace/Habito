@@ -18,6 +18,8 @@
   background-color: white;
   border-bottom: 1px solid rgb(179, 179, 179);
   margin-bottom: 50px;
+  padding: 20px;
+  padding-bottom: 0px;
 }
 
 .nav-buttons-container {
@@ -26,15 +28,19 @@
 }
 
 .logo-nav {
-  font-size: 50px;
+  font-size: 35px;
+}
+
+.logo-nav:hover span{
+  color: rgb(44, 118, 255);
 }
 
 .logo-check-nav {
-  font-size: 37px;
+  font-size: 25px;
 }
 
-.current-nav-item {
-  background-color: #dcdfe4;
+.current-nav-item h6 {
+  color: rgb(44, 118, 255);
 }
 
 .nav-buttons-container div {

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { FaRegCheckCircle, FaRegCircle } from "react-icons/fa"
 import { toggleUserTaskThunk } from "../../redux/programs"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Navigate } from "react-router-dom"
 import "./Home.css"
 
 export default function Home () {

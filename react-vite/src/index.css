@@ -1,6 +1,6 @@
 /* TODO: Add sitewide styles 8*/
 body {
-    background-color: #dcdfe4;
+    background-color: #e9ecf1;
     margin: 0;
 }
 
@@ -14,15 +14,22 @@ label,
 button,
 div,
 h6 {
-    color: black;
+    color: rgb(37, 37, 37);
     font-family: "Roboto", sans-serif;
 }
 
 button {
     background-color: rgb(44, 118, 255);
     color: white;
+    border: 2px solid rgb(44, 118, 255); 
     border-radius: 15px;
-    border: none;
+}
+
+button:hover {
+    background-color: white;
+    border: 2px solid rgb(44, 118, 255);
+    color:  rgb(44, 118, 255);
+    border-radius: 15px;
 }
 
 button:hover {
@@ -33,4 +40,11 @@ span {
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.error {
+    margin: 0px;
+    height: 0px;
+    color: red;
+    font-weight: 400;
 }

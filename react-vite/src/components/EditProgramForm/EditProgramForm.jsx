@@ -111,9 +111,9 @@ export default function EditProgramForm () {
     }
 
     return (
-        <div className="edit-spot-form-container">
-            <main className="edit-spot-form">
-                <div className="edit-spot-form-left">
+        <div className="program-form-container">
+            <main className="program-form">
+                <div className="program-form-left">
                     {/* <div className="name-length-container"> */}
                         <div className="name-input-container" >
                             {(errors.name && triedSubmitting) && <p className="error">{errors.name}</p>}
@@ -149,7 +149,7 @@ export default function EditProgramForm () {
                         </textarea>
                     </div>
                 </div>
-                <div className="edit-spot-form-right">
+                <div className="program-form-right">
                     <label>Tasks</label>
                     <div className="tasks-container">
                         {(errors.tasks && triedSubmitting) && <p className="error">{errors.tasks}</p>}

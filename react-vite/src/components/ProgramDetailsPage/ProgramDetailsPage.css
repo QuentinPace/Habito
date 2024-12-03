@@ -3,12 +3,19 @@
     width: 100%;
 }
 
+.program-details-container h1 {
+    border-bottom: 1px solid rgb(37, 37, 37);
+    padding: 20px;
+    margin: 0px;
+    
+}
+
 .program-details-container {
     width: 65%;
     background-color: rgb(255, 255, 255);
     margin: 50px;
     border-radius: 15px;
-    padding: 20px;
+    height: min-content;
 }
 
 .program-info-all-container aside {
@@ -16,7 +23,7 @@
     background-color: rgb(255, 255, 255);
     margin: 50px;
     border-radius: 15px;
-    padding: 20px;
+    height: min-content;
 }
 
 .program-length-container {
@@ -27,7 +34,7 @@
 
 .program-length-container h5 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .program-length-enroll-container {
@@ -50,6 +57,7 @@
 
 .program-tasks-list {
     padding-left: 0px;
+    margin: 0px;
 }
 
 .description-box p {
@@ -59,20 +67,34 @@
 .program-tasks-list div h6 {
     font-size: 17px;
     font-weight: 400;
-    margin: 22px;
+    margin: 20px;
 }
 
 .program-tasks-list div {
-    border-bottom: 1px solid rgb(207, 207, 207);
+    border-top: 1px solid rgb(207, 207, 207);
 }
 
 .length-days-number-container {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     border-radius: 15px;
-    margin-left: 10px;
+}
+
+.program-details-container article {
+    padding: 20px;
+}
+
+.description-box h3 {
+    margin: 0px;
+}
+
+.program-info-all-container aside h2 {
+    padding: 20px;
+    border-bottom: 1px solid rgb(37, 37, 37);
+    margin: 0px;
+    margin-top: 10px;
+
 }
 

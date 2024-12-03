@@ -1,12 +1,12 @@
-.create-program-form {
+.program-form {
     background-color: rgb(255, 255, 255);
     display: flex;
-    flex-direction: row;
-    height: 300px;
+    flex-direction: column;
+    height: 650px;
     max-width: 900px;
     width: 50%;
     margin: 0 auto;
-    padding: 50px;
+    padding: 20px 50px;
     border-radius: 15px;
 }
 
@@ -14,24 +14,32 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-
 }
 
 .name-length-container {
     display: flex;
 }
 
-.create-program-form-left {
+.program-form-left {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     padding: 20px 0px;
     margin-right: 20px;
+    height: 300px;
 }
 
-.create-program-form-right {
-    width: 50%;
+.program-form-left div {
+    display: flex;
+    flex-direction: column;
+}
+.program-form-left div label {
+    margin-top: 20px;
+}
+
+.program-form-right {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -51,7 +59,7 @@
 }
 
 .created-task-container {
-    background-color: #dcdfe4;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     margin: 5px;
@@ -77,8 +85,10 @@
     width: 100%;
     border: 1px solid black;
     border-radius: 15px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    background-color: #e9ecf1;
+    /* border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+    padding: 5px;
 }
 
 .task-delete svg {
@@ -90,7 +100,7 @@
     height: 200px;
 }
 
-.create-spot-form-container {
+.program-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,8 +109,9 @@
 
 .finish-program-form-button {
     margin: 25px;
-    width: 80px;
-    height: 30px
+    width: 180px;
+    height: 50px;
+    font-size: 17px;
 }
 
 .tasks-list-container::-webkit-scrollbar {
