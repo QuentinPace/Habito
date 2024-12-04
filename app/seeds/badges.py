@@ -35,29 +35,29 @@ def seed_badges():
             program_id=5
             ),
         Badge(
+            name="Body Breakthrough",
+            description="Completed the 60 Day Fitness Transformation.",
+            icon_url="placeholder-for-aws",
+            program_id=6
+            ),
+        Badge(
             name="Storyteller",
             description="Completed the 30 Day Journaling Challenge.",
             icon_url="placeholder-for-aws",
-            program_id=6
+            program_id=7
             ),
         Badge(
             name="Trailblazer",
             description="Complted the 10,000 Steps a Day Challenge.",
             icon_url="placeholder-for-aws",
-            program_id=7
+            program_id=8
             ),
         Badge(
             name="Growth Seeker",
             description="Complted the 30 Day Self-Improvement Challenge.",
             icon_url="placeholder-for-aws",
-            program_id=8
-            ),
-        Badge(
-            name="Body Breakthrough",
-            description="Completed the 60 Day Fitness Transformation.",
-            icon_url="placeholder-for-aws",
             program_id=9
-            ),
+            )
         
     ])
     
