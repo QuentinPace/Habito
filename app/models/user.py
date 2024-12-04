@@ -37,12 +37,25 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    # def to_dict(self):
+    #     return {
+    #         'id': self.id,
+    #         'username': self.username,
+    #         'email': self.email
+    #     }
     def to_dict(self):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            "hashed_password": self.hashed_password,
+            "streak": self.streak,
+            "score": self.score,
+            "profile_picture": self.profile_picture,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
         }
+
     def to_dict_basic(self):
         return {
             'id': self.id,
@@ -54,5 +67,4 @@ class User(db.Model, UserMixin):
             "profile_picture": self.profile_picture,
             "created_at": self.created_at,
             "updated_at": self.updated_at
-
         }

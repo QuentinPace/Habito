@@ -4,6 +4,8 @@ from .user_programs import seed_user_programs, undo_user_programs
 from .user_tasks import seed_user_tasks, undo_user_tasks
 from .tasks import undo_tasks, seed_tasks
 from .programs import seed_programs, undo_programs
+from .badges import seed_badges, undo_badges
+from .user_badges import seed_user_badges, undo_user_badges
 
 from app.models.db import db, environment, SCHEMA
 
@@ -22,13 +24,17 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_user_programs()
         undo_user_tasks()
+        undo_user_badges()
         undo_tasks()
+        undo_badges()
         undo_programs()
         undo_users()
 
     seed_users()
     seed_programs()
+    seed_badges()
     seed_tasks()
+    seed_user_badges()
     seed_user_tasks()
     seed_user_programs()
     # Add other seed functions here
@@ -39,7 +45,9 @@ def seed():
 def undo():
     undo_user_programs()
     undo_user_tasks()
+    undo_user_badges()
     undo_tasks()
+    undo_badges()
     undo_programs()
     undo_users()
     # Add other undo functions here
