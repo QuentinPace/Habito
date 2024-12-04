@@ -48,3 +48,50 @@ span {
     color: red;
     font-weight: 400;
 }
+
+.emblem {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#seventy-five-hard {
+    background-image: url('../../../public/emblem-images/75-hard.jpg');
+}
+
+#fourteen-flexibility{
+    background-image: url('../../../public/emblem-images/14-flexibility.jpg');
+}
+
+#twentyone-mindfullness {
+    background-image: url('../../../public/emblem-images/21-day-mindfullness.jpg');
+}
+
+#thirty-creative {
+    background-image: url('../../../public/emblem-images/30-creative.jpg');
+}
+
+#tenthousand-steps {
+    background-image: url('../../../public/emblem-images/10000-steps.jpg');
+}
+
+#fitness {
+    background-image: url('../../../public/emblem-images/fitness.jpg');
+}
+
+#journaling {
+    background-image: url('../../../public/emblem-images/journaling.jpg');
+}
+
+#seventy-five-soft {
+    background-image: url('../../../public/emblem-images/75-soft.jpg');
+}
+
+#self-improvement {
+    background-image: url('../../../public/emblem-images/self-improvement.jpg');
+}
