@@ -3,7 +3,6 @@ import ProfileButton from "./ProfileButton";
 import { FaCheckCircle } from "react-icons/fa"
 import "./Navigation.css";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 function Navigation() {
   const navigate = useNavigate()
