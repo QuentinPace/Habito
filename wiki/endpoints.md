@@ -66,6 +66,12 @@ Returns all available programs with their details.
           "name": "75 hard",
           "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
           "total_days": 75,
+          "badge": { // badge key is returned only if the program has a corresponding badge
+            "id": 1,
+            "name": "Iron Will",
+            "description": "Completed 75 Strong.",
+            "icon_url": "https://habito-images.s3.us-east-2.amazonaws.com/75hard-logo.jpg.jpg"
+          },
           "tasks": [
             {
               "id": 3,
@@ -405,6 +411,12 @@ Returns the details of a specific program.
       "description": "75-day mental toughness program that challenges participants to follow a strict regimen without exception.",
       "total_days": 75,
       "days_left": 33,
+      "badge": { // badge key is returned only if the program has a corresponding badge
+            "id": 1,
+            "name": "Iron Will",
+            "description": "Completed 75 Strong.",
+            "icon_url": "https://habito-images.s3.us-east-2.amazonaws.com/75hard-logo.jpg.jpg"
+          },
       "tasks": [
         {
           "id": 3,

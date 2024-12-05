@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, make_response, request
 from flask_login import login_required, current_user
-from app.models import User, Program, Task, UserTask, UserProgram, db
+from app.models import User, Program, Task, UserTask, UserProgram, db, Badge
 
 from .userprogram_routes import addProgramToCurrent
 
@@ -137,8 +137,16 @@ def programDetails(programId) :
 
     final_body = target_program.to_dict_basic()
     db_tasks = Task.query.filter(Task.program_id == target_program.id).all()
+    programs_badge = Badge.query.filter(Badge.program_id == target_program.id).first()
 
     final_body["tasks"] = [task.to_dict_basic() for task in db_tasks]
+    if programs_badge:
+        final_body["badge"] = {
+            "id": programs_badge.id,
+            "name": programs_badge.name,
+            "description": programs_badge.description,
+            "icon_url": programs_badge.icon_url
+        }
 
     target_user_program = UserProgram.query.filter(UserProgram.program_id == target_program.id, UserProgram.user_id == current_user.id).first()
     
@@ -162,6 +170,17 @@ def getPrograms () :
             "name": task.name
             } for task in Task.query.filter(Task.program_id == program.id).all()]
         } for program in all_programs]
+    
+    for program in formatted_programs:
+        programs_badge = Badge.query.filter(Badge.program_id == program["id"]).first()
+
+        if programs_badge:
+            program["badge"] = {
+                "id": programs_badge.id,
+                "name": programs_badge.name,
+                "description": programs_badge.description,
+                "icon_url": programs_badge.icon_url
+            }
 
     return make_response(jsonify({"all_programs": formatted_programs}), 200, {"Content-Type": "application/json"})
     
