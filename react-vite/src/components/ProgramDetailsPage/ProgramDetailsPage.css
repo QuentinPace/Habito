@@ -12,10 +12,14 @@
 
 .program-details-container {
     width: 65%;
-    background-color: rgb(255, 255, 255);
     margin: 50px;
-    border-radius: 15px;
     height: min-content;
+}
+
+.program-details-container-top {
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+
 }
 
 .program-info-all-container aside {
@@ -96,5 +100,72 @@
     margin: 0px;
     margin-top: 10px;
 
+}
+
+.completion-rewards-container {
+    display: flex;
+    width: 100%;
+    border-top: 4px solid rgb(44, 118, 255);
+}
+
+.score-awarded-container{
+    width: 33%;
+}
+
+.badge-details-container{
+    width: 33%;
+}
+
+.badge-container {
+    width: 33%;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column; */
+}
+
+.badge-emblem-details {
+    width: 200px;       
+    height: 200px;      
+    border-radius: 50%; 
+    background-repeat: no-repeat;       
+    background-position: center center; 
+    background-size: cover;             
+    border: 2px solid #000;          
+}
+
+.completion-rewards-header-container h2 {
+    color: rgb(44, 118, 255);
+    font-size: 40px;
+}
+
+.completion-rewards-header-container h4 {
+    font-size: 20px;
+}
+
+.score-awarded-container p {
+    font-size: 30px;
+    color:rgb(44, 118, 255);
+    font-weight: 500;
+}
+
+.badge-details-container{
+    width: 33%;
+}
+
+.badge-details-container p {
+    font-size: 20px;
+}
+
+.score-awarded-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-awarded-number-container {
+    background-color: white;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin: 10px;
 }
 

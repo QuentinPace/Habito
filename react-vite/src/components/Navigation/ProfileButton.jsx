@@ -42,7 +42,7 @@ function ProfileButton() {
   };
 
   let style = {
-    "marginTop": user ? "144px" : "124px"
+    "marginTop": user ? "177px" : "124px"
 
   }
 
@@ -57,8 +57,10 @@ function ProfileButton() {
           {user ? (
             <>
               <p>{user.username}</p>
-              <p>{user.email}</p>
-              <button onClick={logout}>Log Out</button>
+              <section className="nav-clickables-container">
+                <section onClick={logout}>Log Out</section>
+                <section onClick={() => navigate(`/profile/${user.id}`)}>Profile</section>
+              </section>
             </>
           ) : (
             <>
