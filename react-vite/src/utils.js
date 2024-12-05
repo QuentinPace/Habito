@@ -1,5 +1,5 @@
 export const getBadgeIdByProgramId = programId => {
-    const idNameArr = [
+    return [
         "seventy-five-hard",
         "seventy-five-soft",
         "twentyone-mindfullness",
@@ -9,7 +9,5 @@ export const getBadgeIdByProgramId = programId => {
         "journaling",
         "tenthousand-steps",
         "self-improvement"
-    ]
-
-
+    ][programId]
 }
