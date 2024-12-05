@@ -22,7 +22,25 @@ Returns the information about the current user that is logged in.
         "id": 1,
         "email": "john.smith@gmail.com",
         "username": "JohnSmith",
-        "profile_picture": "fake_url.jpg"
+        "profile_picture": "fake_url.jpg",
+        "created_at": "timestanmp",
+        "updated_at": "timestamp",
+        "score": 2300,
+        "streak": 5,
+        "badges": [
+          { // badge key is returned only if the program has a corresponding badge
+            "id": 1,
+            "name": "Iron Will",
+            "description": "Completed 75 Strong.",
+            "icon_url": "https://habito-images.s3.us-east-2.amazonaws.com/75hard-logo.jpg.jpg"
+          },
+          { // badge key is returned only if the program has a corresponding badge
+            "id": 2,
+            "name": "Iron Bill",
+            "description": "Completed 75 Soft.",
+            "icon_url": "https://habito-images.s3.us-east-2.amazonaws.com/75hard-lsoft.jpg.jpg"
+          }
+        ]
       }
     }
     ```
