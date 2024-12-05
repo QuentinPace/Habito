@@ -5,6 +5,7 @@ import BrowseProgramsPage from '../components/BrowseProgramsPage';
 import CreateProgramPage from '../components/CreateProgramPage'
 import ProgramDetailsPage from '../components/ProgramDetailsPage';
 import EditProgramForm from '../components/EditProgramForm';
+import ProfilePage from '../components/ProfilePage';
 import Home from '../components/Home'
 import Layout from './Layout';
 
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "program/:programId/edit",
         element: <EditProgramForm />,
+      },
+      {
+        path: "profile/:userId",
+        element: <ProfilePage/>,
       }
     ],
   },
