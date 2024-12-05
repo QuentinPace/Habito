@@ -27,14 +27,22 @@ export default function BrowseProgramsPage () {
     const programsFormatter = () => {
         const finalJSX = []
         for(let i = 0; i < programs.length; i ++){
+            let badge_url = programs[i].badge ? programs[i].badge.icon_url : "placeholder(need an aws hosted placeholder url)"
             finalJSX.push((
                 <div 
                 key={i}
                 onClick={() => navigate(`/program/${programs[i].id}`)}
                 className="browse-program-item">
-                    <header className="browse-header">{programs[i].name}</header>
-                    <div className="browse-description-container">
-                        <p>{programs[i].description.substring(0, 150)}...</p>
+                    <div className="program-header-desc-container">
+                        <header className="browse-header">{programs[i].name}</header>
+                        <div className="browse-description-container">
+                            <p>{programs[i].description.substring(0, 150)}...</p>
+                            </div>
+                    </div>
+                    <div className="program-browse-badge-container">
+                        <div className="badge-browse" style={{"backgroundImage": `url('${badge_url}')`}}>
+                        </div>
+
                     </div>
                 </div>
 
