@@ -7,55 +7,55 @@ def seed_badges():
         Badge(
             name="Iron Will",
             description="Completed 75 Strong.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/75hard-logo.jpg.jpg",
             program_id=1
             ),
         Badge(
             name="Resilient Spirit",
             description="Completed 75 Soft.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/75-soft.png",
             program_id=2
             ),
         Badge(
             name="Mindfull Mastery",
             description="Completed the 21 Day Mindfulness Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/mindfullness-logo.jpg",
             program_id=3
             ),
         Badge(
             name="Creative Spark",
             description="Completed the 30 Day Creative Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/creative-emblem.jpg",
             program_id=4
             ),
         Badge(
             name="Limber Legend",
             description="Completed the 14 Day Flexibility Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/flexibility-logo.jpg",
             program_id=5
             ),
         Badge(
             name="Body Breakthrough",
             description="Completed the 60 Day Fitness Transformation.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/body-transform-logo.jpg",
             program_id=6
             ),
         Badge(
             name="Storyteller",
             description="Completed the 30 Day Journaling Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/journaling-logo.avif",
             program_id=7
             ),
         Badge(
             name="Trailblazer",
             description="Complted the 10,000 Steps a Day Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/walk-logo.jpg",
             program_id=8
             ),
         Badge(
             name="Growth Seeker",
             description="Complted the 30 Day Self-Improvement Challenge.",
-            icon_url="placeholder-for-aws",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/self-improvement.jpg",
             program_id=9
             )
         
