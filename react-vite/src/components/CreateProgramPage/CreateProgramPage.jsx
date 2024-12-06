@@ -60,10 +60,8 @@ export default function CreateProgramsPage () {
             description,
             total_days: length,
             enroll: enrollSelf,
-            // tasks: tasks.map(name => {return {name}})
             tasks
         }
-        console.log(newProgram)
         const programId = await dispatch(createProgramThunk(newProgram))
         if(programId.errors) return (
             <h1>Sorry there was a problem creating your program, try again later.</h1>
@@ -144,10 +142,6 @@ export default function CreateProgramsPage () {
                         buttonText="Add Task"
                         modalComponent={<AddTaskModal tasks={tasks} setTasks={setTasks}/>} />
                     <button  className="add-task-button" onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
-                    {/* <div className="enroll-confirm-container">
-                        <button onClick={enrollSelfHandler}>{enrollSelf ? "Unenroll Yourself" : "Enroll Yourself"}</button>
-                        <button onClick={submit}>Create</button>
-                    </div> */}
                 </div>
             </div>
             <button className="finish-program-form-button" onClick={submit}>Create</button>

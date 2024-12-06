@@ -82,7 +82,7 @@
 }
 
 .tasks-container {
-    width: 100%;
+    width: 500px;
     border: 1px solid black;
     border-radius: 15px;
     background-color: #e9ecf1;
