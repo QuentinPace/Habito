@@ -1,0 +1,18 @@
+.input-confirm-task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-confirm-task-container button{
+     width: 100px;
+     height: 30px;
+     margin-top: 30px;
+     font-size: 18px;
+}
+
+.input-confirm-task-container input {
+    height: 22px;
+    width: 340px;
+}

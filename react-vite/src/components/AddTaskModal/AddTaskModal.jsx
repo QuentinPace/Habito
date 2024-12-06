@@ -29,9 +29,8 @@ export default function AddTaskModal({ tasks, setTasks }) {
     return (
         <>
             <h1>Add Task</h1>
-               <h4>Task Name</h4>
             <div className='input-confirm-task-container'>
-                <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)}></input>
+                <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)} placeholder="Task name"></input>
                 {(hasError && triedSubmitting) && <p className="error">Task name must be between 3 and 70 characters long.</p>}
                 <button disabled={hasError && triedSubmitting} className='confirm-task-create' onClick={handleConfirmTask}>Add Task</button>
             </div>
