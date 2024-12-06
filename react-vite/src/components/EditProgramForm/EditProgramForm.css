@@ -58,6 +58,7 @@
 
 .desc-container textarea {
     height: 100px;
+    resize: none;
 }
 
 .created-task-container {
