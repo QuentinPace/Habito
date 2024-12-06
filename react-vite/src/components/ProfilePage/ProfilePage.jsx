@@ -1,37 +1,57 @@
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { thunkAuthenticate } from "../../redux/session"
+import "./ProfilePage.css"
 
 export default function ProfilePage () {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
     useEffect(() => {
         dispatch(thunkAuthenticate())
     }, [dispatch])
 
+    if(!("badges" in user)){
+        return <h1>Loading...</h1>
+    }
+
+    const badgeFormatter = () => {
+        const finalJSX = []
+        if(!user.badges.length){
+            return (
+                <h2>Complete Programs to earn badges!</h2>
+            )
+        }
+        return finalJSX
+    }
+
     return (
-        <main>
+        <main className="profile-page">
             <aside className="user-basic-info">
                 <div className="profile-pic-items-container">
                     <div className="profile-pic-icon"></div>
                 </div>
                 <div className="username-email-container">
-                    <div className="user-username"></div>
-                    <div className="user-email"></div>
+                    <h4>Username</h4>
+                    <div className="user-username">{user.username}</div>
+                    <h4>Email</h4>
+                    <div className="user-email">{user.email}</div>
                 </div>
             </aside>
             <section className="user-stats-info">
                 <div className="badges-container">
                     <h2>Badges</h2>
-                    <div className="badges-items-container"></div>
+                    <div className="badges-items-container">
+                        {badgeFormatter()}
+                    </div>
                 </div>
                 <div className="streak-score-section">
                     <div className="score-section">
                         <h2>Score</h2>
-                        <div className="score-text"></div>
+                        <div className="score-text">{user.score}</div>
                     </div>
                     <div className="streak-section">
                         <h2>Streak</h2>
-                        <div className="streak-text"></div>
+                        <div className="streak-text">{user.streak} Days</div>
                     </div>
                 </div>
             </section>
