@@ -21,6 +21,15 @@ export default function ProfilePage () {
                 <h2>Complete Programs to earn badges!</h2>
             )
         }
+        for(let i = 0; i < user.badges.length; i++){
+            let currBadge = user.badges[i]
+            finalJSX.push(
+                <div className="profile-page-badge-item">
+                    <h5>{currBadge.name}</h5>
+                    <div className="profile-page-badge" style={{"backgroundImage": `url('${currBadge.icon_url}')`}}></div>
+                </div>
+            )
+        }
         return finalJSX
     }
 
@@ -38,9 +47,9 @@ export default function ProfilePage () {
                 </div>
             </aside>
             <section className="user-stats-info">
-                <div className="badges-container">
+                <div className="badges-section">
                     <h2>Badges</h2>
-                    <div className="badges-items-container">
+                    <div className="badges-container">
                         {badgeFormatter()}
                     </div>
                 </div>
