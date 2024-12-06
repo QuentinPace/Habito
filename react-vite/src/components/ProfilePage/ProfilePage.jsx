@@ -1,5 +1,13 @@
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { thunkAuthenticate } from "../../redux/session"
+
 export default function ProfilePage () {
-    
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(thunkAuthenticate())
+    }, [dispatch])
+
     return (
         <main>
             <aside className="user-basic-info">

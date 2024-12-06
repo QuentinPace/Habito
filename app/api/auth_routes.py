@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import User, db
+from app.models import User, db, Badge, UserBadge
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -13,7 +13,13 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+            formatted_user = current_user.to_dict()
+
+            badges_from_db = db.session.query(UserBadge, Badge).join(Badge, UserBadge.badge_id == Badge.id).filter(UserBadge.user_id == current_user.id) # grabbing the users badges if they have any
+            formatted_badges = [badge.to_dict_basic() for (user_badge, badge) in badges_from_db] if badges_from_db else None
+            formatted_user["badges"] = formatted_badges
+
+            return formatted_user
     return {'errors': {'message': 'Unauthorized'}}, 401
 
 
