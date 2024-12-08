@@ -131,22 +131,3 @@
 
 
 
-.desc-container textarea::-webkit-scrollbar {
-    width: 10px; 
-    height: 10px; 
-}
-.desc-container textarea::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius: 10px;
-}
-.desc-container textarea::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px; 
-    border: 2px solid #f1f1f1;
-}
-.desc-container textarea::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-.desc-container textarea::-webkit-scrollbar-corner {
-    background: #f1f1f1;
-} */
