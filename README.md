@@ -17,7 +17,7 @@ RobinHoodClone is a streamlined stock trading application inspired by Robinhood,
 - React
 -  State Management: Redux
 ### Deployment
-Render
+- Render
 
 ### LIVE SITE screenshots
 ![signup page](/react-vite/public/images/signup.jpg)
