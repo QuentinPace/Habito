@@ -1,6 +1,6 @@
 # Welcome to Habito!
 
-RobinHoodClone is a streamlined stock trading application inspired by Robinhood, built with 2 full CRUD features and 2 partial CRUD features. Developed by Quentin Pace, Adrian Arriaga, Tina Zhou, and Mandy Pan in one week, the platform enables users to efficiently buy and sell stocks, manage their portfolio, and create or edit watchlists. Designed with a focus on intuitive user experience and performant backend queries, RobinHoodClone delivers a reliable and scalable foundation for stock trading functionality.
+Habito is a web application designed to help users build and maintain positive habits by giving users daily tasks/habits to complete. Users can create and edit personalized programs, receive a daily list of habits to complete, maintain a daily streak, and earn rewards like badges and points for their accomplishments. Habito, built as a solo project, combines a robust SQLAlchemy-Flask backend in Python with an intuitive React-Vite frontend in JavaScript, delivering both reliability and a seamless user experience.
 
 [LIVE SITE](https://habito-lc92.onrender.com)
 
