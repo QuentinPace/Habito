@@ -1,11 +1,35 @@
-Welcome to Habito!
+# Welcome to Habito!
 
-[Getting Started](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/getting-started.md)
+RobinHoodClone is a streamlined stock trading application inspired by Robinhood, built with 2 full CRUD features and 2 partial CRUD features. Developed by Quentin Pace, Adrian Arriaga, Tina Zhou, and Mandy Pan in one week, the platform enables users to efficiently buy and sell stocks, manage their portfolio, and create or edit watchlists. Designed with a focus on intuitive user experience and performant backend queries, RobinHoodClone delivers a reliable and scalable foundation for stock trading functionality.
 
-[Database Schema](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/db-schema.md)
+[LIVE SITE](https://habito-lc92.onrender.com)
 
-[API Endpoints](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/endpoints.md)
+## Technologies
 
-[Feature List](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/feature-list.md)
+### Backend
+- Python
+- SQLAlchemy
+- Flask
+- DataBase: PostgreSQL
+### Frontend
+- JavaScript
+- Vite
+- React
+-  State Management: Redux
+### Deployment
+Render
 
-[User Stories](https://github.com/QuentinPace/HabitTracker/blob/main/wiki/user-stories.md)
+### LIVE SITE screenshots
+![signup page](/react-vite/public/images/signup.jpg)
+---
+![alt text](/react-vite/public/images/home-dark.jpg)
+---
+![alt text](/react-vite/public/images/stock-dark.jpg)
+---
+![alt text](/react-vite/public/images/portfolio-dark.jpg)
+---
+![alt text](/react-vite/public/images/portfolio-light.jpg)
+---
+![alt text](/react-vite/public/images/stock-light.jpg)
+---
+![alt text](/react-vite/public/images/home-light.jpg)
