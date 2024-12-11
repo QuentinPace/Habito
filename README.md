@@ -20,16 +20,21 @@ RobinHoodClone is a streamlined stock trading application inspired by Robinhood,
 - Render
 
 ### LIVE SITE screenshots
-![signup page](/react-vite/public/images/signup.jpg)
----
-![alt text](/react-vite/public/images/home-dark.jpg)
----
-![alt text](/react-vite/public/images/stock-dark.jpg)
----
-![alt text](/react-vite/public/images/portfolio-dark.jpg)
----
-![alt text](/react-vite/public/images/portfolio-light.jpg)
----
-![alt text](/react-vite/public/images/stock-light.jpg)
----
-![alt text](/react-vite/public/images/home-light.jpg)
+
+## Login/Signup Page
+![Login/Signup Page](/wiki/wiki-images/LoginSignupPage.png)
+
+## Home Page
+![Home Page](/wiki/wiki-images/HomePage.png)
+
+## Browse Page
+![Browse Page](/wiki/wiki-images/BrowsePage.png)
+
+## Program Details Page
+![Program Details Page](/wiki/wiki-images/ProgramDetailsPage.png)
+
+## Edit/Create Program Page
+![Edit/Create Program Page](/wiki/wiki-images/EditCreateProgramPage.png)
+
+## Profile Page
+![Profile Page](/wiki/wiki-images/ProfilePage.png)
