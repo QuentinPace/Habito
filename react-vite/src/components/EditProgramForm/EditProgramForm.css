@@ -4,8 +4,10 @@
     flex-direction: column;
     height: 650px;
     max-width: 900px;
+    min-width: 220px;
     width: 50%;
     margin: 0 auto;
+    margin-top: 40px;
     padding: 20px 50px;
     border-radius: 15px;
 }
@@ -73,7 +75,7 @@
 
 .created-task-container h6 {
     margin: 0px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 400;
 }
 

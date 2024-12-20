@@ -66,4 +66,8 @@
         height: 80px;
         width: 80px;    
     }
+
+    .browse-description-container p {
+        font-size: 17px;
+    }
 }
