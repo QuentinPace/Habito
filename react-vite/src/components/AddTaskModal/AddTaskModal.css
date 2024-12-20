@@ -16,3 +16,10 @@
     height: 22px;
     width: 340px;
 }
+
+@media(max-width: 500px){
+    .input-confirm-task-container input {
+        width: 200px;
+    }
+
+}
