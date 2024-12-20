@@ -23,8 +23,6 @@
     background-color: rgb(230, 230, 230);
     background-color: rgb(255, 255, 255);
     padding: 15px;
-    /* border-top: 1px solid rgb(37, 37, 37); */
-    /* border: 1px solid black; */
 }
 
 .user-program-item-container header div h3 {
@@ -46,16 +44,11 @@
 }
 
 .progress-bar-completed {
-    /* background-color: rgb(95, 199, 95); */
     background-color: rgb(44, 118, 255);
 }
 
 .user-program-item-container {
-    /* width: 90%; */
     background-color: white;
-    /* margin: 10px; */
-    /* border-radius: 15px;
-    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.11); */
 }
 
 .user-program-list-container {
@@ -85,6 +78,7 @@
 .fa-reg-square:hover {
     cursor: pointer;
 }
+
 .home-page h1 {
     font-size: 17px;
 }
