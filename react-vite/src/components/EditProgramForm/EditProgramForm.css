@@ -100,7 +100,7 @@
 }
 
 .tasks-list-container {
-    overflow-y: auto; /* Vertical scroll */
+    overflow-y: auto;
     height: 200px;
 }
 
