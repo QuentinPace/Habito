@@ -18,9 +18,8 @@
 }
 
 @media(max-width: 500px){
-    
+
     .input-confirm-task-container input {
         width: 200px;
     }
-
 }

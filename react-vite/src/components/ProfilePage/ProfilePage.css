@@ -38,14 +38,14 @@
 }
 
 .profile-pic-icon {
-    width: 300px;       
-    height: 300px;      
-    border-radius: 50%; 
-    background-repeat: no-repeat;       
-    background-position: center center; 
-    background-size: cover;             
-    background-image: url('https://habito-images.s3.us-east-2.amazonaws.com/default-habito-user.png'); /* default until i add aws file upload */
-    border: 2px solid #000;          
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url('https://habito-images.s3.us-east-2.amazonaws.com/default-habito-user.png');
+    border: 2px solid #000;
 }
 
 .badges-container {
@@ -111,29 +111,29 @@
 
 
 .badges-container::-webkit-scrollbar {
-    width: 20px; /* Slightly wider for better visibility */
-    height: 18px; /* Slightly taller for horizontal scrollbar */
+    width: 20px;
+    height: 18px;
 }
 
 .badges-container::-webkit-scrollbar-track {
-    background: #e0e0e0; /* Slightly darker for better contrast */
+    background: #e0e0e0;
     border-radius: 10px;
-    margin: 4px; /* Create a gap between track and container */
+    margin: 4px;
 }
 
 .badges-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #888, #666); /* Add gradient for sleek design */
+    background: linear-gradient(45deg, #888, #666);
     border-radius: 10px;
-    border: 4px solid #e0e0e0; /* Thicker border for thumb visibility */
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    border: 4px solid #e0e0e0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 .badges-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #555, #444); /* Darker gradient on hover */
+    background: linear-gradient(45deg, #555, #444);
 }
 
 .badges-container::-webkit-scrollbar-corner {
-    background: #e0e0e0; /* Match track for consistency */
+    background: #e0e0e0;
 }
 
 .profile-page-badge-item {
