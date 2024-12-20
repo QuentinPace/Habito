@@ -118,9 +118,6 @@
 
 .badge-container {
     width: 33%;
-    /* display: flex;
-    align-items: center;
-    flex-direction: column; */
 }
 
 .badge-emblem-details {
@@ -179,6 +176,7 @@
         margin-top: 20px;
         width: 90%;
     }
+
     .program-info-all-container aside {
         margin: 0  auto;
         margin-top: 30px;
@@ -188,6 +186,7 @@
     .description-box p {
         font-size: 12px;
     }
+
     .completion-rewards-header-container h2 {
         font-size: 18px;
     }
@@ -200,6 +199,7 @@
     .completion-rewards-header-container h4 {
         font-size: 14px;
     }
+
     .badge-details-container p {
         font-size: 13px;
     }
@@ -207,6 +207,7 @@
     .score-awarded-container p {
         font-size: 15px;
     }
+
     .score-awarded-container {
         flex-direction: column;
     }
@@ -214,6 +215,5 @@
     .badge-details-container {
         border-left: 1px solid rgb(211, 211, 211);
         border-right: 1px solid rgb(211, 211, 211);
-        
     }
 }
