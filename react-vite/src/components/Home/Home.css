@@ -5,31 +5,40 @@
     margin: 0 auto;
 }
 
+.home-page-container {
+    background-color: white;
+    min-width: 300px;
+    max-width: 940px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .user-program-item-container header:hover {
     cursor: pointer;
     background-color: rgb(230, 230, 230);
 }
 
 .user-program-item-container header {
+    background-color: rgb(230, 230, 230);
     background-color: rgb(255, 255, 255);
-    padding: 25px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom: 1px solid rgb(37, 37, 37);
+    padding: 15px;
+    /* border-top: 1px solid rgb(37, 37, 37); */
     /* border: 1px solid black; */
 }
 
 .user-program-item-container header div h3 {
     margin: 0px;
+    font-size: 12px;
 }
 
 .progress-bar {
     min-width: 300px;
     max-width: 940px;
-    width: 66%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
-    height: 20px;
+    height: 10px;
     border: 1px solid black;
     border-radius: 5px;
     overflow: hidden;
@@ -44,15 +53,15 @@
 .user-program-item-container {
     /* width: 90%; */
     background-color: white;
-    margin: 10px;
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.11);
+    /* margin: 10px; */
+    /* border-radius: 15px;
+    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.11); */
 }
 
 .user-program-list-container {
     min-width: 300px;
     max-width: 940px;
-    width: 70%;
+    width: 100%;
 }
 
 .user-program-item-container header {
@@ -69,14 +78,16 @@
 
 .fa-reg-check-square,
 .fa-reg-square {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .fa-reg-check-square:hover,
 .fa-reg-square:hover {
     cursor: pointer;
 }
-
+.home-page h1 {
+    font-size: 17px;
+}
 
 .user-task-is-completed-container {
     display: flex;
@@ -95,13 +106,11 @@
 }
 
 .user-task-item-name h5 {
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 400;
 }
 
 .user-task-list-container {
-    padding: 10px;
+    padding: 0px 10px 0px 3vw;
     margin: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
 }

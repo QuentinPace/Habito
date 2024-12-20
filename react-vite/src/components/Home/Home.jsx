@@ -114,13 +114,15 @@ export default function Home () {
 
 
     return (
-        <main className="home-page">
-            <h1>{progressMessages[Math.floor(percentageDone / 10)]}</h1>
-            <div className="progress-bar">
-                <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>
-            </div>
-            <div className="user-program-list-container">
-                {userProgramFormatter(userPrograms)}
+        <main className="home-page-container">
+            <div className="home-page">
+                <h1>{progressMessages[Math.floor(percentageDone / 10)]}</h1>
+                <div className="progress-bar">
+                    <div className="progress-bar-completed" style={{width: `${percentageDone}%`}}></div>
+                </div>
+                <div className="user-program-list-container">
+                    {userProgramFormatter(userPrograms)}
+                </div>
             </div>
         </main>
     )

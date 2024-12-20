@@ -70,6 +70,11 @@ function LoginFormPage() {
                 </label>
                 {errors.password && <p className='error'>{errors.password}</p>}
                 <button className= 'login-button' type="submit">Log In</button>
+                <button className= 'login-button' onClick={() => {
+                  setEmail("demo@aa.io")
+                  setPassword("password")
+                  handleSubmit()
+                }}>Demo Log In</button>
             
               </form>
               <a className='SignUpLink' href='/signup'>Dont have an account yet? Sign up here.</a>

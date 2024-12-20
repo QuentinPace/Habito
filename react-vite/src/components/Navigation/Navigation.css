@@ -16,13 +16,14 @@
   justify-content: space-between;
   background-color: white;
   border-bottom: 1px solid rgb(179, 179, 179);
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   padding: 20px;
   padding-bottom: 0px;
 }
 
 .nav-buttons-container {
   display: flex;
+  justify-content: space-between;
   align-items: end;
 }
 
@@ -44,12 +45,12 @@
 
 .nav-buttons-container div {
   height: 25px;
-  width: 75px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 35px;
-  margin-bottom: 5px;
+  margin: 0px;
 }
 
 .nav-buttons-container div h6 {
@@ -80,11 +81,25 @@
   margin: 10px;
 }
 
-.nav-clickables-container section {
-  margin: 5px;
-  font-size: 18px;
+@media(max-width: 420px){
+  .logo-check-nav {
+    font-size: 12px;
+  }
+
+  .logo-nav {
+    font-size: 17px;
+  }
+
 }
 
-.nav-clickables-container section:hover{
-  color: rgb(44, 118, 255);
+@media(max-width: 640px){
+  .nav-buttons-container div h6 {
+    font-size: 12px;
+  }
+
+  .nav-buttons-container div {
+    width: 55px;
+  }
+
 }
+

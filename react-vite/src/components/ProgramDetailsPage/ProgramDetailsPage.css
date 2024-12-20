@@ -169,3 +169,51 @@
     margin: 10px;
 }
 
+@media(max-width: 1180px){
+    .program-info-all-container {
+        flex-direction: column;
+    }
+
+    .program-details-container {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 90%;
+    }
+    .program-info-all-container aside {
+        margin: 0  auto;
+        margin-top: 30px;
+        width: 90%;
+    }
+
+    .description-box p {
+        font-size: 12px;
+    }
+    .completion-rewards-header-container h2 {
+        font-size: 18px;
+    }
+
+    .badge-emblem-details {
+        width: 80px;       
+        height: 80px; 
+
+    }
+    .completion-rewards-header-container h4 {
+        font-size: 14px;
+    }
+    .badge-details-container p {
+        font-size: 13px;
+    }
+
+    .score-awarded-container p {
+        font-size: 15px;
+    }
+    .score-awarded-container {
+        flex-direction: column;
+    }
+
+    .badge-details-container {
+        border-left: 1px solid rgb(211, 211, 211);
+        border-right: 1px solid rgb(211, 211, 211);
+        
+    }
+}

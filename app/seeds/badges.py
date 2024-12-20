@@ -31,7 +31,7 @@ def seed_badges():
         Badge(
             name="Limber Legend",
             description="Completed the 14 Day Flexibility Challenge.",
-            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/flexibility-logo.jpg",
+            icon_url="https://habito-images.s3.us-east-2.amazonaws.com/flexibility-emblem.jpg",
             program_id=5
             ),
         Badge(

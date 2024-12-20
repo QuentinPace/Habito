@@ -40,7 +40,6 @@ export default function BrowseProgramsPage () {
                             </div>
                     </div>
                     <div className="program-browse-badge-container">
-                        <header className="badge-header">Badge</header>
                         <div className="badge-browse" style={{"backgroundImage": `url('${badge_url}')`}}>
                         </div>
 
