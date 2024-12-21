@@ -24,7 +24,7 @@ export default function ProfilePage () {
         for(let i = 0; i < user.badges.length; i++){
             let currBadge = user.badges[i]
             finalJSX.push(
-                <div className="profile-page-badge-item">
+                <div key={i} className="profile-page-badge-item">
                     <h5>{currBadge.name}</h5>
                     <div className="profile-page-badge" style={{"backgroundImage": `url('${currBadge.icon_url}')`}}></div>
                 </div>
