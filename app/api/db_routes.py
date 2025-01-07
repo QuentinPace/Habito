@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, jsonify, make_response
+from flask import Blueprint, jsonify, make_response, request
 from flask_login import login_required
 from app.models import User, Program, Task, UserTask, UserProgram, db
 
@@ -44,8 +44,10 @@ def delete_program(programId):
 def delete_user_program(userProgramId):
     pass
 
-@db_routes.route(f"/{os.environ.get('DAILY_ROUTE_KEY')}")
+@db_routes.route(f"/{os.environ.get('DAILY_ROUTE_URL')}")
 def daily_db_update():
+
+    provided_key = request.json()
 
     all_tasks = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).all() # noqa: E712
     failed_program_ids = []
@@ -90,11 +92,3 @@ def daily_db_update():
     return make_response(jsonify({
         "failed_programs":  "yuh",
         "completed_programs": finished_programs}), 200, {"Content-Type": "application/json"})
-
-
-# @db_routes.route('/delete_user/<int:userId>')
-# @login_required
-# def delete_user(userId):
-    
-#     user = User.query.get(id)
-#     return user.to_dict()
