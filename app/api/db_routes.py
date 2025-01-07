@@ -85,8 +85,10 @@ def daily_db_update():
     users_not_failed = User.query.filter(~User.id.in_(failed_user_ids)).all()
 
     for user in users_not_failed: # all users that didnt fail a program, increment there streak and score
-        user.streak = user.to_dict_basic().streak + 1
-        user.score = user.to_dict_basic().score + 150
+        user_not_failed_programs = UserProgram.query.filter(UserProgram.user_id == user.id).all()
+        if len(user_not_failed_programs) != 0:
+            user.streak = user.to_dict_basic()["streak"] + 1
+            user.score = user.to_dict_basic()["score"] + 150
 
     db.session.commit()
 
@@ -99,7 +101,7 @@ def daily_db_update():
             target_user = User.query.get(user_program.user_id)
             completed_program = Program.query.get(user_program.program_id)
 
-            target_user.score = target_user.to_dict_basic().score + completed_program.to_dict_basic().score
+            target_user.score = target_user.to_dict_basic()['score'] + completed_program.to_dict_basic()['score']
             
             for (user_task, task) in user_tasks_from_db:
                 db.session.delete(user_task)
