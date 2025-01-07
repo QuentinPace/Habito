@@ -57,6 +57,8 @@ def daily_db_update():
 
     all_tasks = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).all() # noqa: E712
     failed_program_ids = []
+    failed_user_ids = []
+
     for (user_task, task) in all_tasks:
         if not user_task.is_completed:
             if (task.program_id, user_task.user_id) not in failed_program_ids: #pushing the failed programs into a list
@@ -69,6 +71,7 @@ def daily_db_update():
         failed_program_from_db = UserProgram.query.filter(UserProgram.program_id == program_id, UserProgram.user_id == user_id).first()
 
         failed_user_from_db = User.query.get(user_id) # resetting the streak if they failed a program
+        failed_user_ids.append(user_id)
         failed_user_from_db.streak = 0
 
         user_tasks_from_db = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).filter(UserTask.user_id == user_id, Task.program_id == program_id).all()
@@ -78,14 +81,25 @@ def daily_db_update():
 
         db.session.delete(failed_program_from_db)
         db.session.commit()
-
     
+    users_not_failed = User.query.filter(~User.id.in_(failed_user_ids)).all()
+
+    for user in users_not_failed: # all users that didnt fail a program, increment there streak and score
+        user.streak = user.to_dict_basic().streak + 1
+        user.score = user.to_dict_basic().score + 150
+
+    db.session.commit()
+
     completed_user_programs = UserProgram.query.all() # grabbing the rest of the user_programs
     finished_programs = []
     for user_program in completed_user_programs:
         if user_program.days_left == 0: # if its the last day of the program delete the program and corresponding items
             finished_programs.append(user_program.to_dict_basic())
             user_tasks_from_db = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).filter(UserTask.user_id == user_program.user_id, Task.program_id == user_program.program_id).all()
+            target_user = User.query.get(user_program.user_id)
+            completed_program = Program.query.get(user_program.program_id)
+
+            target_user.score = target_user.to_dict_basic().score + completed_program.to_dict_basic().score
             
             for (user_task, task) in user_tasks_from_db:
                 db.session.delete(user_task)
