@@ -60,6 +60,8 @@ def daily_db_update():
     failed_user_ids = []
 
     for (user_task, task) in all_tasks:
+        if user_task.user_id == 1: # if the user is the demo user dont update anything
+            continue
         if not user_task.is_completed:
             if (task.program_id, user_task.user_id) not in failed_program_ids: #pushing the failed programs into a list
                 failed_program_ids.append((task.program_id, user_task.user_id))
@@ -68,6 +70,9 @@ def daily_db_update():
         db.session.commit()
 
     for (program_id, user_id) in failed_program_ids: # deleting all the items from the database that corresponds with that failed program
+        if user_id == 1: # if the user is the demo user dont update anything
+            continue
+
         failed_program_from_db = UserProgram.query.filter(UserProgram.program_id == program_id, UserProgram.user_id == user_id).first()
 
         failed_user_from_db = User.query.get(user_id) # resetting the streak if they failed a program
@@ -85,6 +90,8 @@ def daily_db_update():
     users_not_failed = User.query.filter(~User.id.in_(failed_user_ids)).all()
 
     for user in users_not_failed: # all users that didnt fail a program, increment there streak and score
+        if user.id == 1: # if the user is the demo user dont update anything
+            continue
         user_not_failed_programs = UserProgram.query.filter(UserProgram.user_id == user.id).all()
         if len(user_not_failed_programs) != 0:
             user.streak = user.to_dict_basic()["streak"] + 1
@@ -95,6 +102,8 @@ def daily_db_update():
     completed_user_programs = UserProgram.query.all() # grabbing the rest of the user_programs
     finished_programs = []
     for user_program in completed_user_programs:
+        if user_program.user_id == 1: # if the user is the demo user dont update anything
+            continue
         if user_program.days_left == 0: # if its the last day of the program delete the program and corresponding items
             finished_programs.append(user_program.to_dict_basic())
             user_tasks_from_db = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).filter(UserTask.user_id == user_program.user_id, Task.program_id == user_program.program_id).all()
