@@ -68,6 +68,9 @@ def daily_db_update():
     for (program_id, user_id) in failed_program_ids: # deleting all the items from the database that corresponds with that failed program
         failed_program_from_db = UserProgram.query.filter(UserProgram.program_id == program_id, UserProgram.user_id == user_id).first()
 
+        failed_user_from_db = User.query.get(user_id) # resetting the streak if they failed a program
+        failed_user_from_db.streak = 0
+
         user_tasks_from_db = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).filter(UserTask.user_id == user_id, Task.program_id == program_id).all()
 
         for (user_task, task) in user_tasks_from_db:
