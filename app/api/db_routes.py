@@ -47,7 +47,13 @@ def delete_user_program(userProgramId):
 @db_routes.route(f"/{os.environ.get('DAILY_ROUTE_URL')}")
 def daily_db_update():
 
-    provided_key = request.json()
+    provided_key = request.headers.get("daily_route_key")
+
+    print(f'request {provided_key}')
+    print(f'env     {os.environ.get("DAILY_ROUTE_KEY")}')
+
+    if provided_key != os.environ.get("DAILY_ROUTE_KEY"):
+         return make_response(jsonify({"message": "Forbidden"}), 403, {"Content-Type": "application/json"})
 
     all_tasks = db.session.query(UserTask, Task).join(Task, UserTask.task_id == Task.id).all() # noqa: E712
     failed_program_ids = []
