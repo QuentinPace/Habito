@@ -113,9 +113,9 @@
 .home-page-no-programs {
     height: 100vh;
 }
+
 .home-page-no-programs h1 {
     font-size: 20px;
-
 }
 
 .new-user-buttons-container {
@@ -149,10 +149,16 @@
     .habito-choose-guy { 
         height: 300px;
     }
+    .home-page-no-programs h1 {
+        font-size: 16px;
+    }
 } 
 
 @media(max-width: 500px){
     .habito-choose-guy { 
         height: 250px;
+    }
+    .home-page-no-programs h1 {
+        font-size: 13px;
     }
 } 
