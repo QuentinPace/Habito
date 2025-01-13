@@ -11,6 +11,10 @@
   padding: 3px;
 }
 
+.nav-clickables-container section {
+  margin: 4px 0px;
+}
+
 .header-nav {
   display: flex;
   justify-content: space-between;
