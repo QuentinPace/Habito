@@ -58,7 +58,20 @@ export default function Home () {
         }
         else{
             return (
-                <h1>Create a program to get started!</h1>
+                <main className="home-page-container">
+                    <div className="home-page-no-programs">
+                        <h1>To get started, either create a specialized daily program to fit your needs, or enroll in an existing program!</h1>
+                        <div className="habito-choose-guy"></div>
+                        <section className="new-user-buttons-container">
+                            <div className="create-program-home-container">
+                                <button onClick={() => navigate("/createprogram")}>Create a program</button>
+                            </div>
+                            <div className="existing-program-home-container">
+                                <button onClick={() => navigate("/browse")}>Enroll in an existing program</button>
+                            </div>
+                        </section>
+                    </div>
+                </main>
             )
         }
     }
