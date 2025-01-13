@@ -85,6 +85,7 @@
 }
 
 .username-email-container div {
+    overflow-x: auto;
     padding: 20px;
     background-color: white;
     margin: 10px;
